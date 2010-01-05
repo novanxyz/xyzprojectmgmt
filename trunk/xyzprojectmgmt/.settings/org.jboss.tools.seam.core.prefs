@@ -1,0 +1,17 @@
+#Tue Dec 22 13:49:02 ICT 2009
+action.package=id.co.visitek.jproject.action
+action.sources=/jproject/src/hot
+eclipse.preferences.version=1
+model.package=id.co.visitek.jproject.model
+model.sources=/jproject/src/main
+seam.ejb.project=jproject
+seam.project.connection.profile=
+seam.project.deployment.type=ear
+seam.project.settings.version=1.1
+seam.project.web.root.folder=/jproject/view
+seam.runtime.name=jboss
+seam.settings.changed.by.user=true
+seam.test.creating=true
+seam.test.project=jproject
+test.package=id.co.visitek.jproject.test
+test.sources=/jproject/src/test
