@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
+
+<suite name="NewProjectForm Tests" verbose="2" parallel="false">
+	<test name="NewProjectForm Test">
+		<classes>
+			<class name="id.visitek.co.id.test.NewProjectFormTest" />
+		</classes>
+	</test>
+</suite>

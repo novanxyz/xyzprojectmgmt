@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05 Jan 10 17:38:06 by Hibernate Tools 3.2.5.Beta -->
+<hibernate-mapping>
+    <class name="id.co.visitek.jproject.model.object.User" entity-name="User" table="USERS">
+        <id></id>
+        <property name="nik" type="java.lang.String">
+            <column name="NIK" />
+        </property>
+        <property name="username" type="java.lang.String">
+            <column name="USERNAME" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="PASSWORD" />
+        </property>
+        <property name="realname" type="java.lang.String">
+            <column name="REALNAME" />
+        </property>
+        <property name="signature" type="java.lang.String">
+            <column name="SIGNATURE" />
+        </property>
+        <one-to-one name="contact" class="id.co.visitek.jproject.model.object.Contact"></one-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 04 Jan 10 12:32:22 by Hibernate Tools 3.2.5.Beta -->
+<hibernate-mapping>
+    <class name="id.co.visitek.jproject.model.object.Project" entity-name="Project" table="PROJECTS">
+        <id name="id" column="project_id">
+			<generator class="increment">				
+			</generator>
+		</id>
+        <property name="status" type="int">
+            <column name="project_STATUS" />
+        </property>
+        <property name="percentComplete" type="int">
+            <column name="project_PERCENTCOMPLETE" />
+        </property>
+        <property name="priority" type="int">
+            <column name="project_PRIORITY" />
+        </property>
+        <property name="type" type="int">
+            <column name="project_TYPE" />
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="project_NAME" />
+        </property>
+        <property name="shortName" type="java.lang.String">
+            <column name="project_SHORTNAME" />
+        </property>
+        <property name="code" type="java.lang.String">
+            <column name="project_CODE" />
+        </property>
+        <property name="url" type="java.lang.String">
+            <column name="project_URL" />
+        </property>
+        <property name="descripion" type="java.lang.String">
+            <column name="project_DESCRIPION" />
+        </property>
+        <property name="colorId" type="java.lang.String">
+            <column name="project_COLOR_identifier" />
+        </property>
+        <one-to-one name="owner" class="id.co.visitek.jproject.model.object.User" foreign-key="project_owner"></one-to-one>
+        <many-to-one name="company" class="id.co.visitek.jproject.model.object.Company" fetch="join">
+            <column name="project_COMPANY" />
+        </many-to-one>
+        <one-to-one name="internalCompany" class="id.co.visitek.jproject.model.object.Company" fetch="join" foreign-key="project_company_internal"/>
+            
+        <one-to-one name="department" class="id.co.visitek.jproject.model.object.Department"></one-to-one>
+        <set name="contacts" inverse="false" lazy="true" table="project_CONTACTS">
+            <key column="project_id"></key>
+            <many-to-many class="id.co.visitek.jproject.model.object.Contact" column="contact_id"/>
+        </set>
+        <set name="tasks" inverse="false" lazy="true" table="TASKS">
+            <key column="task_project"></key>
+            <one-to-many class="id.co.visitek.jproject.model.object.Task"/>
+        </set>
+        <one-to-one name="creator" class="id.co.visitek.jproject.model.object.User" foreign-key="project_creator"></one-to-one>
+        <property name="startDate" type="java.util.Date">
+            <column name="project_START_DATE" />
+        </property>
+        <property name="endDate" type="java.util.Date">
+            <column name="project_END_DATE" />
+        </property>
+    </class>
+</hibernate-mapping>
