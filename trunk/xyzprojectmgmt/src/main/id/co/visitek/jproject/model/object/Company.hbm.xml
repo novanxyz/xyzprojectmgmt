@@ -1,25 +1,22 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 04 Jan 10 12:32:22 by Hibernate Tools 3.2.5.Beta -->
+<!-- Generated 05 Jan 10 17:38:06 by Hibernate Tools 3.2.5.Beta -->
 <hibernate-mapping>
-    <class name="id.co.visitek.jproject.model.object.Company" entity-name="Company" table="companies">
-        <id name="id" column="company_id">
-			<generator class="increment">				
-			</generator>
-		</id>   
-        <property name="name" type="java.lang.String">
-            <column name="company_name" />
+    <class name="id.co.visitek.jproject.model.object.Company" entity-name="Company" table="COMPANY">
+        <property name="serialVersionUID" type="long">
+            <column name="SERIALVERSIONUID" />
         </property>
-        <many-to-one name="address" class="id.co.visitek.jproject.model.object.Address"
-        column="company_address">
-        </many-to-one>
-        <many-to-one name="owner" class="id.co.visitek.jproject.model.object.Contact" column="company_owner"></many-to-one>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <one-to-one name="address" class="id.co.visitek.jproject.model.object.Address"></one-to-one>
+        <one-to-one name="owner" class="id.co.visitek.jproject.model.object.Contact"></one-to-one>
         <property name="color" type="java.lang.String">
-            <column name="company_COLOR" />
+            <column name="COLOR" />
         </property>
         <property name="description" type="java.lang.String">
-            <column name="company_DESCRIPTION" />
+            <column name="DESCRIPTION" />
         </property>
     </class>
 </hibernate-mapping>

@@ -1,43 +1,41 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 23 Des 09 21:00:13 by Hibernate Tools 3.2.5.Beta -->
+<!-- Generated 05 Jan 10 17:38:06 by Hibernate Tools 3.2.5.Beta -->
 <hibernate-mapping>
-    <class name="id.co.visitek.jproject.model.object.Address" entity-name="Address" table="ADDRESSES">
-         <id name="id" column="address_id">
-			<generator class="increment">				
-			</generator>
-		</id>   
-            
+    <class name="id.co.visitek.jproject.model.object.Address" entity-name="Address" table="ADDRESS">
+        <property name="serialVersionUID" type="long">
+            <column name="SERIALVERSIONUID" />
+        </property>
         <property name="phoneNo" type="java.lang.String">
-            <column name="address_phone" />
+            <column name="PHONENO" />
         </property>
         <property name="mobileNo" type="java.lang.String">
-            <column name="address_mobile" />
+            <column name="MOBILENO" />
         </property>
         <property name="faxNo" type="java.lang.String">
-            <column name="address_fax" />
+            <column name="FAXNO" />
         </property>
         <property name="address1" type="java.lang.String">
-            <column name="address1" />
+            <column name="ADDRESS1" />
         </property>
         <property name="address2" type="java.lang.String">
-            <column name="address1" />
+            <column name="ADDRESS2" />
         </property>
         <property name="city" type="java.lang.String">
-            <column name="address_city" />
+            <column name="CITY" />
         </property>
         <property name="state" type="java.lang.String">
-            <column name="address_state" />
+            <column name="STATE" />
         </property>
         <property name="country" type="java.lang.String">
-            <column name="address_country" />
+            <column name="COUNTRY" />
         </property>
         <property name="zipCode" type="java.lang.String">
-            <column name="address_zipcode" />
+            <column name="ZIPCODE" />
         </property>
         <property name="email" type="java.lang.String">
-            <column name="address_email" />
+            <column name="EMAIL" />
         </property>
         <property name="url" type="java.lang.String">
             <column name="URL" />

@@ -1,50 +1,27 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 04 Jan 10 12:32:22 by Hibernate Tools 3.2.5.Beta -->
+<!-- Generated 05 Jan 10 17:38:06 by Hibernate Tools 3.2.5.Beta -->
 <hibernate-mapping>
     <class name="id.co.visitek.jproject.model.object.User" entity-name="User" table="USERS">
-        <id name="id" column="user_id">
-			<generator class="increment">				
-			</generator>
-		</id>
+        <property name="serialVersionUID" type="long">
+            <column name="SERIALVERSIONUID" />
+        </property>        
         <property name="nik" type="java.lang.String">
-            <column name="user_nik" />
+            <column name="NIK" />
         </property>
         <property name="username" type="java.lang.String">
-            <column name="user_username" />
+            <column name="USERNAME" />
         </property>
         <property name="password" type="java.lang.String">
-            <column name="user_password" />
+            <column name="PASSWORD" />
         </property>
         <property name="realname" type="java.lang.String">
-            <column name="user_realname" />
+            <column name="REALNAME" />
         </property>
         <property name="signature" type="java.lang.String">
-            <column name="user_SIGNATURE" />
+            <column name="SIGNATURE" />
         </property>
-        <one-to-one name="contact" class="id.co.visitek.jproject.model.object.Contact" foreign-key="user_contact"></one-to-one>
+        <one-to-one name="contact" class="id.co.visitek.jproject.model.object.Contact"></one-to-one>
     </class>
-    
-    <sql-query name="getAllUser">
-    <return name="alluser" class="id.co.visitek.jproject.model.object.User"></return>
-    <![CDDATA[
-    select * from users
-    ]]>
-    </sql-query>
-    
-    <sql-query name="UserbyId">
-    <return name="iduser" class="id.co.visitek.jproject.model.object.User"></return>
-    <![CDDATA[
-    select * from user where user_id = :id
-    ]]>    
-    </sql-query>
-    
-    <sql-query name="UserbyName">
-    <return name="nameduser" class="id.co.visitek.jproject.model.object.User"></return>
-    <![CDDATA[
-    select * from user where user_username = :name
-    ]]>
-    </sql-query>
-    
 </hibernate-mapping>

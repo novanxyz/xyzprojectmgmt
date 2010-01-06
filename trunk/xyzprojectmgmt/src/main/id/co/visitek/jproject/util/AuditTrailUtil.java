@@ -84,13 +84,13 @@ public class AuditTrailUtil implements Interceptor{
 
     public void onCollectionRemove(Object arg0, Serializable arg1)
 	    throws CallbackException {
-	// TODO Auto-generated method stub
+	
 	
     }
 
     public void onCollectionUpdate(Object arg0, Serializable arg1)
 	    throws CallbackException {
-	// TODO Auto-generated method stub
+	
 	
     }
 
@@ -101,16 +101,16 @@ public class AuditTrailUtil implements Interceptor{
             
             try {
                                 
-                logChanges(arg0, null, null, null, INSERT);
+                logChanges(arg0, null, null, null, DELETE);
                 
             } catch (IllegalArgumentException e) {
-                // TODO Auto-generated catch block
+                
                 e.printStackTrace();
             } catch (IllegalAccessException e) {
-                // TODO Auto-generated catch block
+ 
                 e.printStackTrace();
             } catch (InvocationTargetException e) {
-                // TODO Auto-generated catch block
+
                 e.printStackTrace();
             }
         }
@@ -133,10 +133,10 @@ public class AuditTrailUtil implements Interceptor{
                 logChanges(arg0, preUpdateState, null, persistedObjectId.toString(), UPDATE);
                 
             } catch (IllegalArgumentException e) {
-                // TODO Auto-generated catch block
+               
                 e.printStackTrace();
             } catch (IllegalAccessException e) {
-                // TODO Auto-generated catch block
+                
                 e.printStackTrace();
             } catch (InvocationTargetException e) {
                 // TODO Auto-generated catch block

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05 Jan 10 17:38:06 by Hibernate Tools 3.2.5.Beta -->
+<hibernate-mapping>
+    <class name="id.co.visitek.jproject.model.object.AbstractPersistentClass" entity-name="AbstractPersistentClass" table="ABSTRACTPERSISTENTCLASS">
+        <id name="id" type="java.lang.Long">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="serialVersionUID" type="long">
+            <column name="SERIALVERSIONUID" />
+        </property>
+    </class>
+</hibernate-mapping>

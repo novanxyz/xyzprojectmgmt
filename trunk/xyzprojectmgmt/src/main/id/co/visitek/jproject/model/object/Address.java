@@ -30,6 +30,7 @@ public class Address extends AbstractPersistentClass {
 	String email;
 
 	String url;
+	
     public String getPhoneNo() {
         return phoneNo;
     }
