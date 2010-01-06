@@ -1,0 +1,22 @@
+#summary introduction
+
+= Introduction =
+
+just introduction
+
+
+= Details =
+
+This application it porting of php dotproject, I'm trying to develop this to make it more easier to improve and enhancement. Even I'm used to using the php version, but I create this project as my training to implement so new technology on me.
+
+like 
+* hibernate
+* seam
+* richfaces
+* jquery
+
+and hopefully web 2.0
+
+
+
+-to be edited
