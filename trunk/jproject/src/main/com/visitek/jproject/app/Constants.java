@@ -1,5 +1,6 @@
 package com.visitek.jproject.app;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -15,8 +16,9 @@ import com.visitek.jproject.util.db.DBUtil;
 public class Constants {
 	public static final String JPA_UNITNAME = "jprojectJPAUnit";
 	
-	public static final String defaultDateFormat = "ddmmyyyy";
-	public static final String defaultDateTimeFormat = "ddmmyyyy hh:mm";
+	public static final String defaultDateFormat = "ddMMyyyy";
+	public static final String defaultDateTimeFormat = "ddMMyyyy HH:mm";
+	public static final SimpleDateFormat dateformater;
 	
 	
 	public static final DBUtil database = null;
@@ -65,6 +67,7 @@ public class Constants {
 		defaultPermission.add(acl);
 		
 		
+		dateformater = new SimpleDateFormat(defaultDateTimeFormat);		
 		
 		
 	}
