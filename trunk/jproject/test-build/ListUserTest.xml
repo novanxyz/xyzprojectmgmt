@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
+
+<suite name="ListUser Tests" verbose="2" parallel="false">
+   <test name="ListUser Test">
+     <classes>
+       <class name="com.visitek.jproject.test.ListUserTest"/>       
+     </classes>
+   </test>	
+</suite>

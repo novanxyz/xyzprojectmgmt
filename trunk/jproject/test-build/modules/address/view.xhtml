@@ -1,0 +1,44 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich">
+      
+<ui:define name="addressview">
+	<h:form id="adresssform">
+	<rich:panel>
+	<div class="dialog">
+	<h:panelGrid columns="2" rowClasses="prop" columnClasses="name,value">
+	
+	Address : <rich:inplaceInput value="#{Address.toString}">
+		
+	</rich:inplaceInput>
+	City : <rich:inplaceInput value="#{Address.city}">	
+	</rich:inplaceInput>
+	Country  : <rich:inplaceInput value="#{Address.country}">	
+	</rich:inplaceInput>
+	Phone No : <rich:inplaceInput value="#{Address.phoneNo}">	
+	</rich:inplaceInput>
+	Fax No  : <rich:inplaceInput value="#{Address.faxNo}">	
+	</rich:inplaceInput>
+	Mobile No : <rich:inplaceInput value="#{Address.mobileNo}">	
+	</rich:inplaceInput>
+	
+	email : <rich:inplaceInput value="#{Address.email}">	
+	</rich:inplaceInput>
+	url : <rich:inplaceInput value="#{Address.url}">	
+	</rich:inplaceInput>
+
+	map :	<rich:gmap rendered="#{Address.location} != ''">
+	</rich:gmap>
+	
+	</h:panelGrid>
+	</div>
+	</rich:panel>
+	</h:form>
+</ui:define>
+
+</ui:composition>

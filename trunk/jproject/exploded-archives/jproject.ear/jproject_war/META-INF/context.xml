@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="jproject">
+
+   <Resource auth="Container"
+      name="jprojectDatasource"
+      type="javax.sql.DataSource"
+      driverClassName="com.mysql.jdbc.Driver"
+      url="jdbc:mysql://localhost/jproject"
+      username="x"
+      password="diinda"
+      maxActive="100"
+      maxIdle="30"
+      maxWait="10000"/>      
+</Context>

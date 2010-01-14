@@ -1,0 +1,30 @@
+# JPA and Hibernate
+commons-logging.jar
+commons-collections.jar
+cglib.jar
+antlr.jar
+asm*jar
+log4j.jar
+dom4j.jar
+javassist.jar
+hibernate.jar
+hibernate-annotations.jar
+hibernate-commons-annotations.jar
+hibernate-entitymanager.jar
+hibernate-validator.jar
+jboss-common-core.jar
+persistence-api.jar
+# JSF
+jsf-api.jar
+jsf-impl.jar
+# JTA
+jta.jar
+# JSTL
+jstl.jar
+
+icefaces.jar
+jboss-common-core.jar
+jboss-system.jar
+jboss-seam-ui.jar
+
+
