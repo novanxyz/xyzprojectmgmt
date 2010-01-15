@@ -11,19 +11,22 @@ import org.jboss.seam.web.ServletContexts;
 import com.visitek.jproject.app.Configuration;
 import com.visitek.jproject.manager.IManager;
 import com.visitek.jproject.model.business.Session;
+import com.visitek.jproject.model.business.User;
 import com.visitek.jproject.service.UserSessionService;
 import com.visitek.jproject.service.exception.InvalidLoginException;
 
-@Name("sessionMgr")
+@Name("SessionMgr")
 @Scope(ScopeType.SESSION)
 public class SessionMgr implements IManager{
 	
-	/*
-	@In
+	
+	@In("login.username")
 	String username;
-	@In 
+	@In ("login.password")
 	String  password;
-	*/
+	
+	@In("remoteAddr")
+	String remoteAddr;
 	@In
 	Session session;
 	static Configuration config;
@@ -32,20 +35,24 @@ public class SessionMgr implements IManager{
 		config = Configuration.getInstance();
 	}
 	
-	public void login(){
+	public boolean login()throws InvalidLoginException{
 		
 		HttpServletRequest req = ServletContexts.getInstance().getRequest();
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
-		try {
-			session.setUser(UserSessionService.login(username,password));
-		} catch (InvalidLoginException e) {
-			// TODO Auto-generated catch block
+		String ipAddress ="";
+		
+			User user = UserSessionService.login(username,password,remoteAddr );
+			if (user.equals(null)) return false;
+			session.setUser(user);
 			
-		}
-				
-		 
-		 
+			return true;					 		 
+	}
+	
+	
+	public boolean logout (){
+		
+		return true;
 	}
 	
 
