@@ -7,7 +7,7 @@
 
 	<persistence-unit name="jprojectJPAUnit">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<jta-data-source>jprojectDatasource</jta-data-source>
+		<jta-data-source>jdbc/jprojectDatasource</jta-data-source>
 		 <non-jta-data-source>java:comp/evn/jprojectDatasource</non-jta-data-source>
 		<!--
 			The <jar-file> element is necessary if you put the persistence.xml in
@@ -17,7 +17,7 @@
       <jar-file>../../vehicles.jar</jar-file>
       -->
 		<properties>
-			<property name="hibernate.ejb.cfgfile" value="dotproject.hbnt.cfg.xml"/>
+			<property name="hibernate.ejb.cfgfile" value="jrproject.cfg.xml"/>
 			<!--  
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />

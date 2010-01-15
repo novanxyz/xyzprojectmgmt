@@ -16,14 +16,25 @@
                   concurrent-request-timeout="500"
                   conversation-id-parameter="cid"/>
                   
-    <persistence:hibernate-session-factory name="hibernateSessionFactory"/>
+    <persistence:hibernate-session-factory name="hibernate/jprojectdb"/>
     
-    <persistence:managed-hibernate-session name="bookingDatabase"
+    <persistence:managed-hibernate-session name="jprojectdbsession"
                                     session-factory="#{hibernateSessionFactory}"
                                     auto-create="true"/>
+   
+   <persistence:entity-manager-factory name="jprojectEntityManagerFactory" 
+                      persistence-unit-name="jproject"/>
+                      
+	<persistence:managed-persistence-context name="entityManager"
+                                     auto-create="true"
+                          entity-manager-factory="#{jprojectEntityManagerFactory}"/>
+
+   <transaction:hibernate-transaction session="#{jprojectdbsession}"/>
+   
     
-    <security:identity authenticate-method="#{authenticator.authenticate}"/>
-    
-    <transaction:hibernate-transaction session="#{bookingDatabase}"/>
+     
+    <security:identity authenticate-method="#{SessionMgr.login}"/>
+     
+    <factory name="remoteAddr" value="#{facesContext.externalContext.request.remoteAddr}" />
     
 </components>

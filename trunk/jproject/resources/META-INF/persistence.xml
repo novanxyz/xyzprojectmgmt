@@ -7,7 +7,7 @@
 
 	<persistence-unit name="jproject">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<jta-data-source>jprojectDatasource</jta-data-source>
+		<jta-data-source>jdbc/jprojectDatasource</jta-data-source>
 		 <non-jta-data-source>java:comp/evn/jprojectDatasource</non-jta-data-source>
 		<!--
 			The <jar-file> element is necessary if you put the persistence.xml in
@@ -17,12 +17,14 @@
       <jar-file>../../vehicles.jar</jar-file>
       -->
 		<properties>
+			<property name="hibernate.ejb.cfgfile" value="jproject.cfg.xml"/>
+			<!-- 
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />
-			<property name="jboss.entity.manager.factory.jndi.name"
-				value="java:/jprojectEntityManagerFactory" />
+			-->
+			<property name="jboss.entity.manager.factory.jndi.name" value="java:/jprojectEntityManagerFactory" />
 		</properties>
 	</persistence-unit>
 
