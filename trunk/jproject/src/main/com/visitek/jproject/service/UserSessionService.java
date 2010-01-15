@@ -1,6 +1,6 @@
 package com.visitek.jproject.service;
 
-import java.util.List;
+import java.util.Date;
 
 import com.visitek.jproject.app.Constants;
 import com.visitek.jproject.model.business.Session;
@@ -29,16 +29,31 @@ public class UserSessionService {
     
     
     
-    public static User login(String username, String password)  throws InvalidLoginException {
+    public static User login(String username, String password,String Ipaddress)  throws InvalidLoginException {
         Logger.info("authenticating {0}", username);
         
-        List<User> luser = Constants.em.createNamedQuery("login")
+        User user = (User)Constants.em.createNamedQuery("login")
         				.setParameter("username", username)
-        				.setParameter("password", password).getResultList();
+        				.setParameter("password", password).getSingleResult();
         
-        if (luser.size()== 0) return null;
-        	session.setUser((User) luser.get(0));
-		return null;                 
+        if (user == null) throw new InvalidLoginException ();
+        	
+        	session.setUser(user);
+        	session.setLogIn(new Date());
+        	session.setIp(Ipaddress);        	
+        	Constants.em.persist(session);        	
+		return user;                 
+    }
+    
+    public static User logout(User user) throws InvalidLoginException {
+    	
+    	Session s =  (Session )Constants.em.createNamedQuery("getSessionbyUserId")
+    									.setParameter("user_id", user.getId())
+    									.getSingleResult();
+    	if (s== null) throw new InvalidLoginException ();
+    	s.setLogOut(new Date());
+    	Constants.em.persist(s);    	
+    	return null;
     }
     
     

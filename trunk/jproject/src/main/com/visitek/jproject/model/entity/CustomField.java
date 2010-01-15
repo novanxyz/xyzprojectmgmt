@@ -1,7 +1,12 @@
 package com.visitek.jproject.model.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import com.visitek.jproject.model.AbstractPersistentClass;
 
+@Entity
+@Table(name="custom_fields")
 public class CustomField extends AbstractPersistentClass {
 	private static final long serialVersionUID = 1L;
 	

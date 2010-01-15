@@ -1,7 +1,10 @@
 package com.visitek.jproject.model.business;
 
+import javax.persistence.Entity;
+
 import com.visitek.jproject.model.AbstractPersistentClass;
 
+@Entity
 public class AccessControlList extends AbstractPersistentClass {
     private static final long serialVersionUID = 1L;
 

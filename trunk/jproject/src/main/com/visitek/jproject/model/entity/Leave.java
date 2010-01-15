@@ -2,8 +2,11 @@ package com.visitek.jproject.model.entity;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+
 import com.visitek.jproject.model.AbstractPersistentClass;
 
+@Entity
 public class Leave extends AbstractPersistentClass {
     private static final long serialVersionUID = 1L;
     

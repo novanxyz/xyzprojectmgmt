@@ -7,7 +7,6 @@ import com.visitek.jproject.model.AbstractPersistentClass;
 
 
 @Entity
-
 @Table(name = "addresses")
 public class Address extends AbstractPersistentClass {
     private static final long serialVersionUID = 1L;

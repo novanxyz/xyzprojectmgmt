@@ -25,6 +25,7 @@ public class Session extends AbstractPersistentClass{
      * 
      */
     private User user;
+       
     private String ip;
     private Date logIn;
     private Date logOut;
@@ -79,6 +80,8 @@ public class Session extends AbstractPersistentClass{
 	public void setLogOut(Date logOut) {
 		this.logOut = logOut;
 	}
+
+
 
     
 

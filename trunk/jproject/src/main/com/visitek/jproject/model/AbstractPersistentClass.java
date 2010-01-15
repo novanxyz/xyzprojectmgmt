@@ -10,6 +10,7 @@ package com.visitek.jproject.model;
 import java.io.Serializable;
 import java.lang.reflect.Field;
 
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 import com.visitek.jproject.util.KeyValueUtil;
@@ -22,7 +23,7 @@ public class AbstractPersistentClass implements Serializable {
 	Long id;
 
 	
-	@Id
+	@Id @GeneratedValue
 	public Long getId() {
 		return id;
 	}
