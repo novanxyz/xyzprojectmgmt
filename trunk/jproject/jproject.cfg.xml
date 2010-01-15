@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory name="hibernate/jprojectdb">
+ 	<property name="connection.datasource">jdbc/jprojectDatasource</property>
+ 	
+ 	
+	 	<property name="hibernate.connection.release_mode">after_statement</property>
+		<property name="hibernate.transaction.flush_before_completion">true</property>
+		<property name="hibernate.transaction.auto_close_session">true</property>
+		<property name="hibernate.transaction.attribute">RequiredNew</property>
+		 <!-- 
+		<property name="hibernate.ejb.interceptor">com.visitek.jproject.util.dbHibernateAuditTrailUtil</property>
+		 -->
+		
+		<property name="hibernate.jdbc.batch_size">25</property>
+		<property name="hibernate.generate_statistics">true</property>
+		<property name="hibernate.order_updates">true</property>
+		
+		<property name="cache.use_second_level_cache">false</property>
+        <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+		<property name="hibernate.cache.use_minimal_puts">true</property>
+		<!--
+		<property name="cache.use_query_cache">true</property>
+		-->
+		
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>	
+		
+		<!--  Mapping files -->
+		<mapping resource="com/visitek/jrpoject/model/entity/project.hbm.xml" />
+		<mapping resource="com/visitek/jrpoject/model/entity/task.hbm.xml" />		
+		<mapping resource="com/visitek/jrpoject/model/business/user.hbm.xml" />
+		
+		
+		
+		
+ 	
+	 <!-- 
+  <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+  <property name="hibernate.connection.password">diinda</property>
+  <property name="hibernate.connection.url">jdbc:mysql://localhost/jproject</property>
+  <property name="hibernate.connection.username">x</property>
+  <property name="hibernate.default_schema">jproject</property>
+  <property name="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
+  	-->
+ </session-factory>
+</hibernate-configuration>
