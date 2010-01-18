@@ -5,13 +5,13 @@ import javax.servlet.http.HttpServletRequest;
 import org.jboss.seam.ScopeType;
 import org.jboss.seam.annotations.In;
 import org.jboss.seam.annotations.Name;
+import org.jboss.seam.annotations.Out;
 import org.jboss.seam.annotations.Scope;
 import org.jboss.seam.web.ServletContexts;
 
 import com.visitek.jproject.app.Configuration;
 import com.visitek.jproject.manager.IManager;
 import com.visitek.jproject.model.business.Session;
-import com.visitek.jproject.model.business.User;
 import com.visitek.jproject.service.UserSessionService;
 import com.visitek.jproject.service.exception.InvalidLoginException;
 
@@ -27,7 +27,11 @@ public class SessionMgr implements IManager{
 	
 	@In("remoteAddr")
 	String remoteAddr;
-	@In
+
+	@In("sessionId")
+	String sessionId;
+
+	@In @Out
 	Session session;
 	static Configuration config;
 	
@@ -37,22 +41,13 @@ public class SessionMgr implements IManager{
 	
 	public boolean login()throws InvalidLoginException{
 		
-		HttpServletRequest req = ServletContexts.getInstance().getRequest();
-		String username = req.getParameter("username");
-		String password = req.getParameter("password");
-		String ipAddress ="";
-		
-			User user = UserSessionService.login(username,password,remoteAddr );
-			if (user.equals(null)) return false;
-			session.setUser(user);
-			
-			return true;					 		 
+		session = UserSessionService.login(username,password,remoteAddr,sessionId );
+		if (session.equals(null)) return false;
+			return true;
 	}
-	
-	
-	public boolean logout (){
 		
-		return true;
+	public boolean logout () throws InvalidLoginException{
+		return UserSessionService.logout(session);
 	}
 	
 
