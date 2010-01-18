@@ -1,8 +1,3 @@
-/**
- * @author R. Ardhian (rardhian@gmail.com)
- * December 2007
- */
-
 package com.visitek.jproject.model;
 
 
@@ -47,7 +42,7 @@ public class AbstractPersistentClass implements Serializable {
 		return id.equals(other.getId());
 	}
 	
-	public String getName(){
+	public String getClassName(){
 	    String className = this.getClass().getName();
 
             // Just get the class name without the package structure 
@@ -68,19 +63,16 @@ public class AbstractPersistentClass implements Serializable {
 	
 	public String toString(){
 		
-		String s = getName();
+		String s = getClassName();
 		for (int i= 0 ;i < getClass().getFields().length;i++){
 			Field f =getClass().getFields()[i];
 			if (f.getClass().isPrimitive()){
 				// may be it's need to be converted to key-values;				
 				try {
-					s += " " + f.getName() + " " + KeyValueUtil.getKeyValue(getName(),f.getName(),f.getInt(f));
-				} catch (IllegalArgumentException e) {
-										
-				} catch (IllegalAccessException e) {
-									
-				}
-				
+					s += " " + f.getName() + " " + KeyValueUtil.getKeyValue(getClassName(),f.getName(),f.getInt(f));
+				} catch (Exception e) {
+					s += " ";
+				} 
 			}else{
 				s += " " + f.getName() + ":" + f.toString();
 			}

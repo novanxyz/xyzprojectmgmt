@@ -223,8 +223,8 @@ public class HibernateAuditTrailUtil implements Interceptor{
 	try {
 	    
 	AbstractPersistentClass obj=    ((AbstractPersistentClass)newObject);
-	User actor = UserSessionService.getCurrentUser();
-	String module = obj.getName();
+	User actor = UserSessionService.getCurrentUser("");
+	String module = obj.getClassName();
 	AuditTrail audit = new AuditTrail();
 	audit.setUser(actor);
 	audit.setModule(module);
