@@ -17,7 +17,7 @@
       <jar-file>../../vehicles.jar</jar-file>
       -->
 		<properties>
-			<property name="hibernate.ejb.cfgfile" value="jrproject.cfg.xml"/>
+			<property name="hibernate.ejb.cfgfile" value="jproject.cfg.xml"/>
 			<!--  
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />

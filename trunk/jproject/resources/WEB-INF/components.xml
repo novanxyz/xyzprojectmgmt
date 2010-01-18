@@ -15,7 +15,8 @@
     <core:manager conversation-timeout="120000" 
                   concurrent-request-timeout="500"
                   conversation-id-parameter="cid"/>
-                  
+             
+     
     <persistence:hibernate-session-factory name="hibernate/jprojectdb"/>
     
     <persistence:managed-hibernate-session name="jprojectdbsession"
@@ -35,6 +36,11 @@
      
     <security:identity authenticate-method="#{SessionMgr.login}"/>
      
-    <factory name="remoteAddr" value="#{facesContext.externalContext.request.remoteAddr}" />
+    <factory name="rootUrl"  value="#{facesContext.externalContext.requestContextPath}"/>    
+    <factory name="remoteAddr" value="#{facesContext.externalContext.request.remoteAddr}"/>
+    <factory name="sessionId"  value="#{facesContext.externalContext.request.session.id}"/>
+    
+    
+    
     
 </components>
