@@ -8,7 +8,8 @@ public interface IResource extends IPersistentObject {
 	
 	
 	public String getName();
-	public int getType();	
+	public String getType();
+	
 	public float getLoad();
 	public void setLoad(float load);
 	public float getCost();

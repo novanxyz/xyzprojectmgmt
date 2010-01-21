@@ -1,6 +1,7 @@
 package com.visitek.xyzproject.model.entity;
 
 import java.util.Date;
+import java.util.Iterator;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -13,13 +14,9 @@ public class Project extends AbstractPersistentClass {
 	private static final long serialVersionUID = 1L;
 
 	int status;
-
 	int percentComplete;
-
 	int priority;
-
 	int type;
-
 	String name;
 
 	String shortName;
@@ -33,13 +30,10 @@ public class Project extends AbstractPersistentClass {
 	String colorId;
 
 	User owner;
-
 	Company company;
-
 	Company internalCompany;
 
 	Set<Contact> contacts;
-
 	Set<Task> tasks;
 
 	Date startDate;
@@ -159,7 +153,14 @@ public class Project extends AbstractPersistentClass {
 	}
 
 	public Set<Contact> getContacts() {
-		return contacts;
+		
+		Iterator it = getTasks().iterator();
+		Set<Contact> c = contacts;
+		while (it.hasNext()){
+			Task t = (Task)it.next();
+			c.addAll(t.getContacts());
+		}				
+		return c;
 	}
 
 	public void setContacts(Set<Contact> contacts) {
@@ -180,6 +181,29 @@ public class Project extends AbstractPersistentClass {
 
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
+	}
+
+	public Set<Task> getTasks() {
+		return tasks;
+	}
+
+	public void setTasks(Set<Task> tasks) {
+		this.tasks = tasks;
+	}
+	
+	public void addTask(Task task){
+		getTasks().add(task);
+	}
+	public void removeTask(Task task){
+		getTasks().remove(task);		
+	}
+	
+	public void addContact(Contact con){
+		getContacts().add(con);
+	}
+	
+	public void removeContact(Contact e){
+		getContacts().remove(e);
 	}
 
 }

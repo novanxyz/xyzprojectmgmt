@@ -8,7 +8,7 @@
     		table="users" lazy="true">    		
     	<id type="java.lang.Long">
             <column name="user_id" />
-            <generator class="increment" />
+            <generator class="native" />
         </id>
         
         <property name="username" type="java.lang.String" unique="true">

@@ -7,7 +7,7 @@
     table="departments" lazy="false">
     	<id type="java.lang.Long">
  	   		<column name="dept_id"></column>
-    		<generator class="increment"></generator>
+    		<generator class="native"></generator>
     	</id>
 
         <property name="name" type="java.lang.String">

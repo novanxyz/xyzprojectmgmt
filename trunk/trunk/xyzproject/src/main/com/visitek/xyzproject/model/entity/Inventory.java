@@ -20,9 +20,9 @@ public class Inventory extends AbstractPersistentClass implements IResource {
 		return null;
 	}
 
-	public int getType() {
+	public String getType() {
 		// TODO Auto-generated method stub
-		return 0;
+		return "Inventory";
 	}
 
 	public void setCost(float cost) {

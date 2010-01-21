@@ -6,7 +6,7 @@
     <class name="com.visitek.xyzproject.model.entity.Task" entity-name="Task" table="tasks">
         <id type="java.lang.Long" >
         	<column name="task_id"/>
-			<generator class="increment"/>
+			<generator class="native"/>
 		</id>
         <property name="name" type="java.lang.String">
             <column name="task_NAME" />
@@ -18,7 +18,7 @@
         <many-to-one name="project" class="com.visitek.xyzproject.model.entity.Project" fetch="join">
             <column name="task_PROJECT" />
         </many-to-one>
-        <set name="department" inverse="false" lazy="true" table="task_departements">
+        <set name="departments" inverse="false" lazy="true" table="task_departements">
             <key column="task_id"></key>
             <many-to-many class="com.visitek.xyzproject.model.entity.Department" column="departement_id"/>
         </set>

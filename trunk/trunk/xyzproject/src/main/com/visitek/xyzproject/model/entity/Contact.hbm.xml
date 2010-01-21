@@ -7,7 +7,7 @@
   lazy="false" name="com.visitek.xyzproject.model.entity.Contact" table="contacts">
   <id type="java.lang.Long">            
   	<column name="contact_id" />
-   	<generator class="increment" />
+   	<generator class="native" />
   </id>
   
   <property name="firstname" type="java.lang.String">

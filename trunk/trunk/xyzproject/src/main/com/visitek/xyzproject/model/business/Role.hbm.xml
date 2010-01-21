@@ -7,7 +7,7 @@
     	table="roles" lazy="true">
         <id type="java.lang.Long">
         	<column name="role_id"/>
-			<generator class="increment"/>
+			<generator class="native"/>
 		</id>
 		
 		<property name="name">

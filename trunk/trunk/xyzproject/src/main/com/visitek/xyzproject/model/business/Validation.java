@@ -62,6 +62,14 @@ public class Validation extends AbstractPersistentClass {
 		this.rules = rules;
 	}
 	
+	public void addRule(ValidationRule rule){
+		getRules().add(rule);
+	}
+	public void removeRule(ValidationRule rule){
+		getRules().remove(rule);
+	}
+	
+	
 	
 
 }

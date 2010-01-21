@@ -8,7 +8,7 @@
     		
         <id type="java.lang.Long">
             <column name="company_id" />
-            <generator class="increment" />
+            <generator class="native" />
         </id>
         
         <property name="name" type="java.lang.String">

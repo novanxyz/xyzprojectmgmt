@@ -7,7 +7,7 @@
     		table="projects">    
         <id type="java.lang.Long">
         	<column name="project_id"/>
-			<generator class="increment"/>
+			<generator class="native"/>
 		</id>
         <property name="status" type="int">
             <column name="project_STATUS" />
@@ -46,10 +46,12 @@
         <one-to-one name="internalCompany" class="com.visitek.xyzproject.model.entity.Company" fetch="join" foreign-key="project_company_internal"/>
             
         <one-to-one name="department" class="com.visitek.xyzproject.model.entity.Department" foreign-key="project_department" outer-join="true" fetch="select"/>
+        
         <set name="contacts" inverse="false" lazy="true" table="project_contacts">
-            <key column="project_id"></key>
-            <many-to-many class="com.visitek.xyzproject.model.entity.Contact" column="contact_id"/>
+            <key column="project_id"/>
+            <many-to-many class="com.visitek.xyzproject.model.entity.Contact" foreign-key="contact_id"/>
         </set>
+        
         <set name="tasks" inverse="false" lazy="true" table="TASKS">
             <key column="task_project"></key>
             <one-to-many class="com.visitek.xyzproject.model.entity.Task" />

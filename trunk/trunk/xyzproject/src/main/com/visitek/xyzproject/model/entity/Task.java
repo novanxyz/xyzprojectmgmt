@@ -21,9 +21,9 @@ public class Task extends AbstractPersistentClass {
     Task  parent;    
     Project project;
     
-    Set<Department> department;
-
+    Set<Department> departments;
     Set<Contact> contacts;
+    
     
 
 	User owner;    
@@ -81,13 +81,14 @@ public class Task extends AbstractPersistentClass {
     public void setProject(Project project) {
         this.project = project;
     }
-    public Set<Department> getDepartement() {
-        return department;
+    public Set<Department> getDepartments() {
+        return departments;
     }
-    public void setDepartment(Set<Department> departement) {
-        this.department = departement;
+    public void setDepartments(Set<Department> departement) {
+        this.departments = departement;
     }
     public Set<Contact> getContacts() {
+    	    	
         return contacts;
     }
     public void setContacts(Set<Contact> contacts) {
@@ -189,9 +190,12 @@ public class Task extends AbstractPersistentClass {
     public void setWeight(int weight) {
         this.weight = weight;
     }
-    public Set<Department> getDepartment() {
-        return department;
-    }
+	public boolean isMilestone() {
+		return milestone;
+	}
+	public void setMilestone(boolean milestone) {
+		this.milestone = milestone;
+	}
     
     
     

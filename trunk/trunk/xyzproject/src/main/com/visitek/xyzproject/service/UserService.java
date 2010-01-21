@@ -26,7 +26,7 @@ public class UserService {
 	} 
 	
 	public static User getUserbyId(int id){
-		return (User)Constants.em.createNamedQuery("UserbyId").setParameter("id", id).getSingleResult();
+		return  (User)Constants.em.find(User.class, new Long(id));
 	}
 	
 	public static User getUserbyName(String name){
@@ -140,6 +140,15 @@ public class UserService {
 	public void removeUserRole(User user, Role role){
 		user.removeRole(role);
 		Constants.em.persist(user);
+	}
+	
+	public Role createRole(String name){
+		
+		Role role = (Role)Constants.em.createNamedQuery("roleByName").setParameter("name", "name").getSingleResult();		
+		if (role == null) role = new Role(name);	
+		Constants.em.persist(role);
+		return role;
+				
 	}
 
 	

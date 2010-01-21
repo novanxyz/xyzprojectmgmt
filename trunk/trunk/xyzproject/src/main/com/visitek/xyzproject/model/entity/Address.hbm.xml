@@ -7,7 +7,7 @@
 	    table="addresses" >
         <id type="java.lang.Long">
             <column name="address_id" />
-            <generator class="increment" />
+            <generator class="native" />
         </id>
         
         <property name="street" type="java.lang.String">

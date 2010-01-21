@@ -12,6 +12,10 @@ public class Role extends AbstractPersistentClass {
 	
 	String name;
 
+	public Role(String name2) {
+		name = name2;
+	}
+
 	public String getName() {
 		return name;
 	}

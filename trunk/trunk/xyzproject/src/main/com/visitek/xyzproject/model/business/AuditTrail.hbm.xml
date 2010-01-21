@@ -6,7 +6,7 @@
     <class name="com.visitek.xyzproject.model.business.AuditTrail" entity-name="AuditTrail" table="audittrail">
         <id type="java.lang.Long">
         	<column name="audit_id"/>
-			<generator class="increment"/>				
+			<generator class="native"/>				
 		</id>   
         <property name="timestamp" type="java.util.Date">
             <column name="audit_TIMESTAMP" />
