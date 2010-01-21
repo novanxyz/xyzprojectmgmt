@@ -102,6 +102,9 @@ public class FormulaIntepreter {
 	}
 	
 	
+	/**
+	 * @throws FormulaException  
+	 */
 	public Object eval(Object input) throws FormulaException, ScriptException, NoSuchMethodException{
 		
 

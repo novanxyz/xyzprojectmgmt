@@ -100,7 +100,14 @@ public class User extends AbstractPersistentClass {
 
 	public Set<Role> getRoles() {
 	
-		return		roles;
+		return	roles;
+	}
+	
+	public void addRole(Role role){
+		getRoles().add(role);
+	}
+	public void removeRole(Role role){
+		getRoles().remove(role);
 	}
 
     

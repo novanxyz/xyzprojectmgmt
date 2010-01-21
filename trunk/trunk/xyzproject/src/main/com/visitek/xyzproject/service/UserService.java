@@ -7,8 +7,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.NonUniqueResultException;
 
-import sun.security.provider.MD5;
-
 import com.visitek.xyzproject.app.Constants;
 import com.visitek.xyzproject.model.business.Role;
 import com.visitek.xyzproject.model.business.User;
@@ -128,20 +126,19 @@ public class UserService {
 			 if (u.equals(user)) return true;
 		} catch (NonUniqueResultException e) {			
 			return true;
-		} catch (Exception e){
-			
+		} catch (Exception e){			
 		}
 		return false;
 		
 	}
 	
-	public void setUserRole(User user, Role role){
-		user.getRoles().add(role);
+	public void addUserRole(User user, Role role){
+		user.addRole(role);
 		Constants.em.persist(user);
 	}
 	
 	public void removeUserRole(User user, Role role){
-		user.getRoles().remove(role);
+		user.removeRole(role);
 		Constants.em.persist(user);
 	}
 

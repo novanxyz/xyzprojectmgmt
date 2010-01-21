@@ -20,4 +20,11 @@ public class Role extends AbstractPersistentClass {
 		this.name = name;
 	}
 	
+	public void addUserRole(User user){
+		user.getRoles().add(this);		
+	}
+	public void removeUserRole(User user){
+		user.getRoles().remove(this);
+	}
+	
 }
