@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 19 Jan 10 11:48:51 by Hibernate Tools 3.2.5.Beta -->
+<hibernate-mapping>
+    <class name="com.visitek.xyzproject.model.entity.Department" entity-name="Department" 
+    table="departments" lazy="false">
+    	<id type="java.lang.Long">
+ 	   		<column name="dept_id"></column>
+    		<generator class="increment"></generator>
+    	</id>
+
+        <property name="name" type="java.lang.String">
+            <column name="dept_NAME" />
+        </property>
+        <many-to-one name="address" class="Address" fetch="join">
+            <column name="dept_ADDRESS" />
+        </many-to-one>
+        <many-to-one name="owner" class="User" fetch="join">
+            <column name="dept_OWNER" />
+        </many-to-one>
+        
+        <one-to-one name="parent" class="Department" foreign-key="dept_parent" outer-join="true"/>
+        
+        <many-to-one name="company" class="Company" fetch="join">
+            <column name="dept_COMPANY" />
+        </many-to-one>
+        <property name="description" type="java.lang.String">
+            <column name="dept_DESCRIPTION" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 19 Jan 10 11:48:51 by Hibernate Tools 3.2.5.Beta -->
+<hibernate-mapping package="com.visitek.xyzproject.model.entity">
+ <class entity-name="Contact"
+  lazy="false" name="com.visitek.xyzproject.model.entity.Contact" table="contacts">
+  <id type="java.lang.Long">            
+  	<column name="contact_id" />
+   	<generator class="increment" />
+  </id>
+  
+  <property name="firstname" type="java.lang.String">
+   <column name="contact_FIRSTNAME"/>
+  </property>
+  <property  name="lastname" type="java.lang.String">
+   <column name="contact_LASTNAME"/>
+  </property>
+  <property  name="orderby" type="java.lang.String">
+   <column name="contact_ORDERBY"/>
+  </property>
+  <property  name="title" type="java.lang.String">
+   <column name="contact_TITLE"/>
+  </property>
+  <property  name="job" type="java.lang.String">
+   <column name="contact_JOB"/>
+  </property>
+
+  <one-to-one class="Address" name="address" foreign-key="contact_address"/> 
+  
+  <many-to-one class="Company" fetch="join" name="company">
+   <column name="contact_COMPANY"/>
+  </many-to-one>
+  
+  <many-to-one class="Department" fetch="join" name="department">
+   <column name="contact_DEPARTMENT"/>
+  </many-to-one>
+  
+  <property  name="birthday" type="java.util.Date">
+   <column name="BIRTHDAY"/>
+  </property>
+  
+ </class>
+</hibernate-mapping>
