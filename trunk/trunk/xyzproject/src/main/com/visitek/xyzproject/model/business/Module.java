@@ -11,7 +11,7 @@ public abstract class Module extends AbstractPersistentClass {
 	private static final long serialVersionUID = 1L;
 
 	String name;
-	String Description;
+	String description;
 	String uiName;
 
 	String className;
@@ -26,10 +26,11 @@ public abstract class Module extends AbstractPersistentClass {
 	}
 
 	public String getDescription() {
-		return Description;
+		return description;
 	}
 
 	public String getIconPath() {
+		if (iconPath == null) return "/modules/"+ name + "/view/" + name + ".jpg";
 		return iconPath;
 	}
 
@@ -58,7 +59,7 @@ public abstract class Module extends AbstractPersistentClass {
 	}
 
 	public void setDescription(String description) {
-		Description = description;
+		this.description = description;
 	}
 
 	public void setIconPath(String iconPath) {
