@@ -537,7 +537,7 @@
         </copy>
     </target>
 
-	<target name="run-display" if="${eclipse.running}" >
+	<target name="run-display" if="eclipse.running" >
 		
 	</target>
     
