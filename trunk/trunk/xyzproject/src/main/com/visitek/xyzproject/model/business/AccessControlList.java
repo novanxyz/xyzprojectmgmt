@@ -6,49 +6,61 @@ import com.visitek.xyzproject.model.AbstractPersistentClass;
 
 @Entity
 public class AccessControlList extends AbstractPersistentClass {
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
 	public static final int ACL_LEVEL_MODULE = 0;
 	public static final int ACL_LEVEL_OBJECT = 1;
 	public static final int ACL_LEVEL_PROPERTY = 2;
-    
-    User user;
-    Role role;
-    int level;
-    String ObjectId;    // blank untuk semua
-    String ObjectAcl;	// blank meants not for all
-    
-    
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
-	public Role getRole() {
-		return role;
-	}
-	public void setRole(Role role) {
-		this.role = role;
-	}
+
+	public static final int ACL_PERMISSION_VIEW = 1;
+	public static final int ACL_PERMISSION_EDIT = 2;
+	public static final int ACL_PERMISSION_ADD = 4;
+	public static final int ACL_PERMISSION_DELETE = 8;
+
+	User user;
+	Role role;
+	int level;
+	String ObjectId; // blank untuk semua
+	int ObjectAcl; // blank meants not for all
+
 	public int getLevel() {
 		return level;
 	}
-	public void setLevel(int level) {
-		this.level = level;
+
+	public int getObjectAcl() {
+		return ObjectAcl;
 	}
+
 	public String getObjectId() {
 		return ObjectId;
 	}
+
+	public Role getRole() {
+		return role;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
+	}
+
+	public void setObjectAcl(int objectAcl) {
+		ObjectAcl = objectAcl;
+	}
+
 	public void setObjectId(String objectId) {
 		ObjectId = objectId;
 	}
-	public String getObjectAcl() {
-		return ObjectAcl;
+
+	public void setRole(Role role) {
+		this.role = role;
 	}
-	public void setObjectAcl(String objectAcl) {
-		ObjectAcl = objectAcl;
+
+	public void setUser(User user) {
+		this.user = user;
 	}
-    
-	    
+
 }

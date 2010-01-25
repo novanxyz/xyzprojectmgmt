@@ -4,115 +4,125 @@ import javax.persistence.Entity;
 
 import com.visitek.xyzproject.model.AbstractPersistentClass;
 
-
 @Entity
 public class Address extends AbstractPersistentClass {
-    private static final long serialVersionUID = 1L;
-    
+	private static final long serialVersionUID = 1L;
 
-    String street;
-	
+	protected static String street;
 
-	String city;
+	protected static String city;
 
-	String state;
+	protected static String state;
 
-	String country;
+	protected static String country;
 
-	String zipCode;
-    
-	String phoneNo;
+	protected static String zipCode;
 
-	String mobileNo;
+	protected static String phoneNo;
 
-	String faxNo;
+	protected static String mobileNo;
 
-	String email;
+	protected static String faxNo;
 
-	String url;
-	
-	String location;
-	
-	    
-    public String getCity() {
-        return city;
-    }
-    public void setCity(String city) {
-        this.city = city;
-    }
-    public String getState() {
-        return state;
-    }
-    public void setState(String state) {
-        this.state = state;
-    }
-    public String getCountry() {
-        return country;
-    }
-    public void setCountry(String country) {
-        this.country = country;
-    }
-    public String getZipCode() {
-        return zipCode;
-    }
-    public void setZipCode(String zipCode) {
-        this.zipCode = zipCode;
-    }
-	
-    public String getMobileNo() {
-		return mobileNo;
+	protected static String email;
+
+	protected static String url;
+
+	protected static String location;
+
+	public String getCity() {
+		return city;
 	}
-	public void setMobileNo(String mobileNo) {
-		this.mobileNo = mobileNo;
+
+	public String getCountry() {
+		return country;
 	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public String getFaxNo() {
+		return faxNo;
+	}
+
 	public String getLocation() {
 		return location;
 	}
-	public void setLocation(String location) {
-		this.location = location;
-	}
-	public String getPhoneNo() {
-        return phoneNo;
-    }
-    public void setPhoneNo(String phoneNo) {
-        this.phoneNo = phoneNo;
-    }
-    public String getFaxNo() {
-        return faxNo;
-    }
-    public void setFaxNo(String faxNo) {
-        this.faxNo = faxNo;
-    }
 
-    
-    public String getEmail() {
-        return email;
-    }
-    public void setEmail(String email) {
-        this.email = email;
-    }
-    public String getUrl() {
-        return url;
-    }
-    public void setUrl(String url) {
-        this.url = url;
-    }
-    
-    @Override
-    public String toString() {	
-	return "Address " + street +  "\n"
-		+ "\n" + city + ", " + state + " " + zipCode 
-		+ "\n" + country 
-		+ "\nemail: " + email + "\twebsite: " + url;
-    }
+	public String getMobileNo() {
+		return mobileNo;
+	}
+
+	public String getPhoneNo() {
+		return phoneNo;
+	}
+
+	public String getState() {
+		return state;
+	}
 
 	public String getStreet() {
 		return street;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public String getZipCode() {
+		return zipCode;
+	}
+
+	public  void setCity(String city) {
+		this.city = city;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setFaxNo(String faxNo) {
+		this.faxNo = faxNo;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public void setMobileNo(String mobileNo) {
+		this.mobileNo = mobileNo;
+	}
+
+	public void setPhoneNo(String phoneNo) {
+		this.phoneNo = phoneNo;
+	}
+
+	public void setState(String state) {
+		this.state = state;
 	}
 
 	public void setStreet(String street) {
 		this.street = street;
 	}
 
-    
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public void setZipCode(String zipCode) {
+		this.zipCode = zipCode;
+	}
+
+	@Override
+	public String toString() {
+		return "Address " + street + "\n" + "\n" + city + ", " + state + " "
+				+ zipCode + "\n" + country + "\nemail: " + email
+				+ "\twebsite: " + url;
+	}
+
 }

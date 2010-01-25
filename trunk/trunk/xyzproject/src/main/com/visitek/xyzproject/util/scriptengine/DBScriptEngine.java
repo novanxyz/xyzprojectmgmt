@@ -15,38 +15,22 @@ import javax.script.ScriptException;
 import com.visitek.xyzproject.app.Constants;
 
 public class DBScriptEngine implements ScriptEngine {
-	
+
 	static Connection db;
 	Statement sql;
-	
-	
-	
+
 	static {
-		db =Constants.database.getConnection();
+		db = Constants.database.getConnection();
 	}
-	
-	
+
 	public DBScriptEngine(String formula) throws SQLException {
 		super();
 		sql = db.prepareCall(formula);
-		
+
 	}
 
 	public Bindings createBindings() {
 		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Object eval(String script) throws ScriptException {
-		ResultSet rs ;
-		try {
-			if ((rs = sql.executeQuery(script))!=null){
-				return rs.getObject(0);
-			}
-		} catch (SQLException e) {
-			throw new ScriptException(e.getMessage());			
-		}
-		
 		return null;
 	}
 
@@ -55,8 +39,7 @@ public class DBScriptEngine implements ScriptEngine {
 		return null;
 	}
 
-	public Object eval(String script, ScriptContext context)
-			throws ScriptException {
+	public Object eval(Reader reader, Bindings n) throws ScriptException {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -67,12 +50,25 @@ public class DBScriptEngine implements ScriptEngine {
 		return null;
 	}
 
+	public Object eval(String script) throws ScriptException {
+		ResultSet rs;
+		try {
+			if ((rs = sql.executeQuery(script)) != null)
+				return rs.getObject(0);
+		} catch (SQLException e) {
+			throw new ScriptException(e.getMessage());
+		}
+
+		return null;
+	}
+
 	public Object eval(String script, Bindings n) throws ScriptException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Object eval(Reader reader, Bindings n) throws ScriptException {
+	public Object eval(String script, ScriptContext context)
+			throws ScriptException {
 		// TODO Auto-generated method stub
 		return null;
 	}

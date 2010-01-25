@@ -67,167 +67,165 @@ import com.icesoft.faces.webapp.xmlhttp.RenderingException;
 public class TimerBeanImpl implements Renderable, Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Logger private Log log;
+	@Logger
+	private Log log;
 
-    // expand/contract effects to take place of panelCollapsible
-    private Effect currentEffect=new BlindUp();
-    private boolean visibility=false;
-    private boolean toggledEffect;
-    private boolean expanded = false;
+	// expand/contract effects to take place of panelCollapsible
+	private Effect currentEffect = new BlindUp();
+	private boolean visibility = false;
+	private boolean toggledEffect;
+	private boolean expanded = false;
 
-    private DateFormat dateFormatter;
+	private DateFormat dateFormatter;
 
-    @In
-    private RenderManager renderManager;
-    private boolean doneSetup;
-    private IntervalRenderer ir;
-    private PersistentFacesState state = PersistentFacesState.getInstance();
-    private String synchronous;
+	@In
+	private RenderManager renderManager;
+	private boolean doneSetup;
+	private IntervalRenderer ir;
+	private PersistentFacesState state = PersistentFacesState.getInstance();
+	private String synchronous;
 
-    private int myId; 
+	private int myId;
 
-    private static int id;
+	private static int id;
 
+	public TimerBeanImpl() {
+		dateFormatter = DateFormat.getDateTimeInstance();
+		myId = ++id;
+	}
 
-    public PersistentFacesState getState() {
-        return state;
-    }
+	/** to simulate panelCollapsible */
+	private void buildEffect() {
+		if (expanded)
+			currentEffect = new BlindDown();
+		else
+			currentEffect = new BlindUp();
+		currentEffect.setSubmit(true);
+		currentEffect.setTransitory(false);
+		currentEffect.setDuration(.2f);
+	}
 
-    public void renderingException( RenderingException re) {
-        if(log.isTraceEnabled() ) { 
-           log.trace("*** View obsoleted: " + myId );
-        } 
-        cleanup();
-    }
+	private void cleanup() {
+		if (ir != null) {
+			ir.remove(this);
+			if (ir.isEmpty()) {
+				if (log.isTraceEnabled())
+					log.trace("*** IntervalRenderer Stopped ");
+				ir.requestStop();
+			}
+		}
+	}
 
+	// Don't make this begin a conversation as this class is
+	// intended to be used in a footer.
+	// If this method starts a conversation
+	// it can't be added to the foot of applications that don't
+	// expect conversations to already be in progress
+	public String getCurrentConversation() {
+		Manager m = Manager.instance();
+		return m.getCurrentConversationId();
+	}
 
-    public TimerBeanImpl() {
-        dateFormatter =  DateFormat.getDateTimeInstance();
-        myId = ++id;      
-    }
+	public String getCurrentTime() {
 
+		state = PersistentFacesState.getInstance();
 
-    /** to simulate panelCollapsible */   
-    private void buildEffect() {
-       if (expanded) {
-            currentEffect = new BlindDown();
-       } else {
-           currentEffect = new BlindUp();
-       }
-           currentEffect.setSubmit(true);
-           currentEffect.setTransitory(false);
-           currentEffect.setDuration(.2f);
-    }
+		if (!doneSetup) {
 
-    public boolean getExpanded() {
-        return expanded;
-    }
-    public void setExpanded(boolean expanded) {
-        this.expanded = expanded;
-        visibility = expanded;
-        buildEffect();
-        currentEffect.setFired(true);
-    }
-       public boolean isVisibility() {
-        return visibility;
-    }
-    public void setVisibility(boolean visibility) {
-        this.visibility = visibility;
-    }
- 
-    /**
-     * Method used to toggle the expanded status of this item This would be
-     * called from the front end pages
-     *
-     * @return "toggleExpanded" for use with faces-config navigation
-     */
-    public String toggleExpanded() {
-        expanded = !expanded;
-        buildEffect();
-        toggledEffect = true;
-        currentEffect.setFired(false);
-        currentEffect.setSubmit(true);
-        return null;
-    }
-    /**
-     * Gets the effect used when a cell is expanded or contracted
-     *
-     * @return effect
-     */
-    public Effect getExpandEffect() {
-        if (!toggledEffect) {
-            currentEffect.setSubmit(false);
-        }
-        toggledEffect = false;
-        return currentEffect;
-    }
-    
-    public String getCurrentTime() {
+			if (log.isTraceEnabled())
+				log.trace("*** new TimerBean renderable... " + myId);
 
-        state = PersistentFacesState.getInstance();
+			FacesContext fc = FacesContext.getCurrentInstance();
+			synchronous = (String) fc.getExternalContext()
+					.getInitParameterMap().get(
+							"com.icesoft.faces.synchronousUpdate");
+			boolean timed = Boolean.valueOf((String) fc.getExternalContext()
+					.getInitParameterMap().get(
+							"org.icesoft.examples.serverClock"));
 
-        if (!doneSetup) {
+			if (timed) {
+				ir = renderManager
+						.getIntervalRenderer("org.icesoft.clock.clockRenderer");
+				ir.setInterval(5000);
+				ir.add(this);
+				ir.requestRender();
+			}
+		}
 
-            if(log.isTraceEnabled() ) { 
-                log.trace("*** new TimerBean renderable... " + myId );
-            } 
+		doneSetup = true;
+		return dateFormatter.format(new Date(System.currentTimeMillis()));
+	}
 
-            FacesContext fc = FacesContext.getCurrentInstance();
-            synchronous = (String) fc.getExternalContext().getInitParameterMap().
-                    get( "com.icesoft.faces.synchronousUpdate" );
-            boolean timed = Boolean.valueOf( (String) fc.getExternalContext().getInitParameterMap().
-                    get("org.icesoft.examples.serverClock"));
+	public boolean getExpanded() {
+		return expanded;
+	}
 
-            if (timed) {
-                ir = renderManager.getIntervalRenderer("org.icesoft.clock.clockRenderer");
-                ir.setInterval(5000);
-                ir.add(this);
-                ir.requestRender();
-            }
-        }
-        
-        doneSetup = true;
-        return dateFormatter.format( new Date( System.currentTimeMillis() ) );
-    }
+	/**
+	 * Gets the effect used when a cell is expanded or contracted
+	 * 
+	 * @return effect
+	 */
+	public Effect getExpandEffect() {
+		if (!toggledEffect)
+			currentEffect.setSubmit(false);
+		toggledEffect = false;
+		return currentEffect;
+	}
 
-    public String getRenderMode() {
-        return  synchronous + " " + myId;        
-    }
+	public String getLongRunning() {
+		Manager m = Manager.instance();
+		return Boolean.toString(m.isLongRunningConversation());
+	}
 
-    // Don't make this begin a conversation as this class is 
-    // intended to be used in a footer. 
-    // If this method starts a conversation 
-    // it can't be added to the foot of applications that don't 
-    // expect conversations to already be in progress
-    public String getCurrentConversation() {
-        Manager m = Manager.instance();
-        return m.getCurrentConversationId();
-    }
+	public String getRenderMode() {
+		return synchronous + " " + myId;
+	}
 
-    public String getLongRunning() {
-        Manager m = Manager.instance();
-        return Boolean.toString( m.isLongRunningConversation() );
-    } 
+	public PersistentFacesState getState() {
+		return state;
+	}
 
-    @Remove
-    @Destroy
-    public void remove() {
-        if(log.isTraceEnabled() ) { 
-           log.trace("*** View removed: " + myId );
-        } 
-        cleanup(); 
-    }
+	public boolean isVisibility() {
+		return visibility;
+	}
 
+	@Remove
+	@Destroy
+	public void remove() {
+		if (log.isTraceEnabled())
+			log.trace("*** View removed: " + myId);
+		cleanup();
+	}
 
-    private void cleanup() {
-        if (ir != null) {
-            ir.remove(this);
-            if (ir.isEmpty() ) {
-                if(log.isTraceEnabled() ) { 
-                   log.trace("*** IntervalRenderer Stopped " );
-                } 
-                ir.requestStop();
-            }
-        }
-    } 
+	public void renderingException(RenderingException re) {
+		if (log.isTraceEnabled())
+			log.trace("*** View obsoleted: " + myId);
+		cleanup();
+	}
+
+	public void setExpanded(boolean expanded) {
+		this.expanded = expanded;
+		visibility = expanded;
+		buildEffect();
+		currentEffect.setFired(true);
+	}
+
+	public void setVisibility(boolean visibility) {
+		this.visibility = visibility;
+	}
+
+	/**
+	 * Method used to toggle the expanded status of this item This would be
+	 * called from the front end pages
+	 * 
+	 * @return "toggleExpanded" for use with faces-config navigation
+	 */
+	public String toggleExpanded() {
+		expanded = !expanded;
+		buildEffect();
+		toggledEffect = true;
+		currentEffect.setFired(false);
+		currentEffect.setSubmit(true);
+		return null;
+	}
 }
