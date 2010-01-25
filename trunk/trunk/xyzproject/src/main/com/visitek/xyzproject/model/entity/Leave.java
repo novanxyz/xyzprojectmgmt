@@ -8,45 +8,52 @@ import com.visitek.xyzproject.model.AbstractPersistentClass;
 
 @Entity
 public class Leave extends AbstractPersistentClass {
-    private static final long serialVersionUID = 1L;
-    
-    Employee employee;
-    Date startDate;
-    Date endDate;
-    String reason;
-    boolean approved;
+	private static final long serialVersionUID = 1L;
+
+	Employee employee;
+	Date startDate;
+	Date endDate;
+	String reason;
+	boolean approved;
+
 	public Employee getEmployee() {
 		return employee;
 	}
-	public void setEmployee(Employee employee) {
-		this.employee = employee;
-	}
-	public Date getStartDate() {
-		return startDate;
-	}
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
-	}
+
 	public Date getEndDate() {
 		return endDate;
 	}
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
-	}
+
 	public String getReason() {
 		return reason;
 	}
-	public void setReason(String reason) {
-		this.reason = reason;
+
+	public Date getStartDate() {
+		return startDate;
 	}
+
 	public boolean isApproved() {
 		return approved;
 	}
+
 	public void setApproved(boolean approved) {
 		this.approved = approved;
 	}
-    
-    
-    
+
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
+
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
+
+	public void setReason(String reason) {
+		this.reason = reason;
+	}
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
 
 }

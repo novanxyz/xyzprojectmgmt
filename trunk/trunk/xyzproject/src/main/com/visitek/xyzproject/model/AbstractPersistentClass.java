@@ -1,7 +1,5 @@
 package com.visitek.xyzproject.model;
 
-
-
 import java.io.Serializable;
 import java.lang.reflect.Field;
 
@@ -10,75 +8,77 @@ import javax.persistence.Id;
 
 import com.visitek.xyzproject.util.KeyValueUtil;
 
-
-
 public class AbstractPersistentClass implements Serializable {
 	public static final long serialVersionUID = 1L;
 	Long id;
 
-	
-	@Id @GeneratedValue
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null || !(o instanceof IPersistentObject))
+			return false;
+
+		// if the id is missing, return false
+		if (id == null)
+			return false;
+
+		IPersistentObject other = (IPersistentObject) o;
+
+		// equivalence by id
+		return id.equals(other.getId());
+	}
+
+	public String getClassName() {
+		String className = this.getClass().getName();
+
+		// Just get the class name without the package structure
+		String[] tokens = className.split("\\.");
+		int lastToken = tokens.length - 1;
+		className = tokens[lastToken];
+		return className;
+	}
+
+	@Id
+	@GeneratedValue
 	public Long getId() {
 		return id;
 	}
-	
+
+	@Override
+	public int hashCode() {
+		if (id != null)
+			return id.hashCode();
+		else
+			return super.hashCode();
+	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public boolean equals(Object o) {
-		if(this == o) return true;
-		if(o == null || !(o instanceof IPersistentObject)) {
-			return false;
-		}
+	@Override
+	public String toString() {
 
-		// if the id is missing, return false
-		if(id == null) return false;
-		
-		IPersistentObject other = (IPersistentObject) o;
-		
-		// equivalence by id
-		return id.equals(other.getId());
-	}
-	
-	public String getClassName(){
-	    String className = this.getClass().getName();
-
-            // Just get the class name without the package structure 
-            String[] tokens = className.split("\\.");
-            int lastToken = tokens.length - 1;
-            className = tokens[lastToken];
-            return className;
-	}
-	
-	public int hashCode() {
-		if(id != null) {
-			return id.hashCode();
-		}
-		else {
-			return super.hashCode();
-		}
-	}
-	
-	public String toString(){
-		
 		String s = getClassName();
-		for (int i= 0 ;i < getClass().getFields().length;i++){
-			Field f =getClass().getFields()[i];
-			if (f.getClass().isPrimitive()){
-				// may be it's need to be converted to key-values;				
+		for (int i = 0; i < getClass().getFields().length; i++) {
+			Field f = getClass().getFields()[i];
+			if (f.getClass().isPrimitive())
+				// may be it's need to be converted to key-values;
 				try {
-					s += " " + f.getName() + " " + KeyValueUtil.getKeyValue(getClassName(),f.getName(),f.getInt(f));
+					s += " "
+							+ f.getName()
+							+ " "
+							+ KeyValueUtil.getKeyValue(getClassName(), f
+									.getName(), f.getInt(f));
 				} catch (Exception e) {
 					s += " ";
-				} 
-			}else{
+				}
+			else
 				s += " " + f.getName() + ":" + f.toString();
-			}
 		}
-		
-		
+
 		return s;
-		
+
 	}
 }

@@ -12,95 +12,99 @@ public class Duration implements Serializable {
 	public static final long serialVersionUID = 1L;
 	public static final int HOUR = 1;
 	public static final int DAY = 24;
-	public static final int WEEK = 24*7;
-	public static final int MONTH = 24*7*30;
-	
-	
+	public static final int WEEK = 24 * 7;
+	public static final int MONTH = 24 * 7 * 30;
+
 	long years;
 	long months;
 	long days;
 	long hours;
 	long minutes;
 	long seconds;
-	
+
 	public Duration() {
-		
-	}
-	
-	public Duration(Date start, Date end){	   
-	    long seconds = end.getTime() - start.getTime();
-	    this.setSeconds(seconds % 60);	    
-	    this.setMinutes(seconds % 60 % 60);
-	    this.setHours(seconds % 86400);
-	    this.setDays(seconds % (86400*30));
-	    this.setMonths(seconds % (86400 * 365));
-	    this.setYears(seconds/(86400 * 365));
-	}
-	
-	public Duration(long seconds){
-		
-		this.setDays(seconds/86400);
-		this.setHours( (seconds- this.getDays()*86400)/3600 );
-		this.setMinutes((seconds- this.getDays()*86400 - this.getHours()*3600 )/60);
-		this.setSeconds((seconds- this.getDays()*86400 - this.getHours()*60 - this.getMinutes()*60));		
+
 	}
 
-	public long getHours() {
-		return hours;
+	public Duration(Date start, Date end) {
+		long seconds = end.getTime() - start.getTime();
+		this.setSeconds(seconds % 60);
+		this.setMinutes(seconds % 60 % 60);
+		this.setHours(seconds % 86400);
+		this.setDays(seconds % (86400 * 30));
+		this.setMonths(seconds % (86400 * 365));
+		this.setYears(seconds / (86400 * 365));
 	}
 
-	public void setHours(long hours) {
-		this.hours = hours;
-	}
+	public Duration(long seconds) {
 
-	public long getMinutes() {
-		return minutes;
-	}
-
-	public void setMinutes(long minutes) {
-		this.minutes = minutes;
-	}
-
-	public long getSeconds() {
-		return seconds;
-	}
-
-	public void setSeconds(long seconds) {
-		this.seconds = seconds;
+		this.setDays(seconds / 86400);
+		this.setHours((seconds - this.getDays() * 86400) / 3600);
+		this
+				.setMinutes((seconds - this.getDays() * 86400 - this.getHours() * 3600) / 60);
+		this.setSeconds((seconds - this.getDays() * 86400 - this.getHours()
+				* 60 - this.getMinutes() * 60));
 	}
 
 	public long getDays() {
 		return days;
 	}
 
-	public void setDays(long days) {
-		this.days = days;
-	}
-	
-	
-	
-	public long getYears() {
-	    return years;
+	public long getHours() {
+		return hours;
 	}
 
-	public void setYears(long years) {
-	    this.years = years;
+	public long getMinutes() {
+		return minutes;
 	}
 
 	public long getMonths() {
-	    return months;
+		return months;
+	}
+
+	public long getSeconds() {
+		return seconds;
+	}
+
+	public long getYears() {
+		return years;
+	}
+
+	public void setDays(long days) {
+		this.days = days;
+	}
+
+	public void setHours(long hours) {
+		this.hours = hours;
+	}
+
+	public void setMinutes(long minutes) {
+		this.minutes = minutes;
 	}
 
 	public void setMonths(long months) {
-	    this.months = months;
+		this.months = months;
 	}
 
-	public String toString(){
-		String str ="";
-		if (days>0)		str += days + " hari ";
-		if (hours>0)	str += hours + " jam ";
-		if (minutes>0) 	str += minutes + " menit " ;
-		if ((hours == 0 && minutes == 0 ) && seconds != 0 ) str += seconds + " detik" ;
+	public void setSeconds(long seconds) {
+		this.seconds = seconds;
+	}
+
+	public void setYears(long years) {
+		this.years = years;
+	}
+
+	@Override
+	public String toString() {
+		String str = "";
+		if (days > 0)
+			str += days + " hari ";
+		if (hours > 0)
+			str += hours + " jam ";
+		if (minutes > 0)
+			str += minutes + " menit ";
+		if (hours == 0 && minutes == 0 && seconds != 0)
+			str += seconds + " detik";
 		return str;
 	}
 }
