@@ -15,7 +15,7 @@
       
       <properties>
 	     <property name="hibernate.ejb.cfgfile" value="xyzhibernate.cfg.xml"/>
-	      <property name="jboss.entity.manager.jndi.name" value="java:/xyzprojectEntityManager"/>	     
+	     <property name="jboss.entity.manager.jndi.name" value="java:/xyzprojectEntityManager"/>	     
          <property name="jboss.entity.manager.factory.jndi.name" value="@puJndiName@"/>
          
          <!-- 
