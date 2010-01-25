@@ -32,7 +32,8 @@
 
         <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
 		<property name="hibernate.cache.use_minimal_puts">true</property>
-		<property name="hibernate.show_sql">false</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="auto-import">false</property>
 
 		<!--  <property name="hibernate.artifact">hbm</property> -->
 		
