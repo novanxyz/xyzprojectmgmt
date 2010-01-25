@@ -1,6 +1,5 @@
 package com.visitek.xyzproject.service;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -32,13 +31,7 @@ public class SearchService {
 
 	public static Set<AbstractPersistentClass> searchByName(String namekey) {
 
-		Set<AbstractPersistentClass> ul = new HashSet<AbstractPersistentClass>();
-		ul.add(UserService.findByName(namekey, false));
-		ul.add(ProjectService.findByName(namekey, false));
-		ul.add(TaskService.findByName(namekey, false));
-		ul.add(ContactService.findByName(namekey, false));
-		ul.add(SkillService.findByName(namekey, false));
-
+		
 		return null;
 	}
 
