@@ -8,6 +8,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.LockModeType;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceContextType;
 
 import com.visitek.xyzproject.app.Constants;
 
@@ -105,7 +106,7 @@ public abstract class BaseService<T> {
 		getEntityManager().refresh(o);
 	}
 
-	@PersistenceContext
+	@PersistenceContext(type=PersistenceContextType.EXTENDED)
 	public void setEntityManager(EntityManager em) {
 		BaseService.em = em;
 	}

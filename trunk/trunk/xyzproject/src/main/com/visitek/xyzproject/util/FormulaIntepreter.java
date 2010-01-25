@@ -28,6 +28,9 @@ public class FormulaIntepreter {
 
 	}
 
+	/**
+	 * @throws FormulaException  
+	 */
 	public FormulaIntepreter(String formula) throws FormulaException {
 
 		if (formula.startsWith("file://")) {
