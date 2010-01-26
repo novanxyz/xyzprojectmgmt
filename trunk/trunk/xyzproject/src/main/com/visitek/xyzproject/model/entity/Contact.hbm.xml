@@ -26,15 +26,10 @@
    <column name="contact_JOB"/>
   </property>
 
-  <one-to-one class="Address" name="address" foreign-key="contact_address"/> 
+  <one-to-one name="address" class="Address"  foreign-key="contact_address"/>     
+  <one-to-one  name="company" class="Company" foreign-key="contact_company"/>
+  <one-to-one  name="department" class="Department"   foreign-key="contact_dept"/>
   
-  <many-to-one class="Company" fetch="join" name="company">
-   <column name="contact_COMPANY"/>
-  </many-to-one>
-  
-  <many-to-one class="Department" fetch="join" name="department">
-   <column name="contact_DEPARTMENT"/>
-  </many-to-one>
   
   <property  name="birthday" type="java.util.Date">
    <column name="BIRTHDAY"/>
