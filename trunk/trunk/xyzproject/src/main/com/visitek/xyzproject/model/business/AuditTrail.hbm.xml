@@ -3,7 +3,9 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 04 Jan 10 12:32:22 by Hibernate Tools 3.2.5.Beta -->
 <hibernate-mapping>
-    <class name="com.visitek.xyzproject.model.business.AuditTrail" entity-name="AuditTrail" table="audittrail">
+    <class name="com.visitek.xyzproject.model.business.AuditTrail" 
+    	entity-name="AuditTrail" 
+    	table="audittrail">
         <id type="java.lang.Long">
         	<column name="audit_id"/>
 			<generator class="native"/>				
@@ -11,9 +13,11 @@
         <property name="timestamp" type="java.util.Date">
             <column name="audit_TIMESTAMP" />
         </property>
-        <many-to-one name="user" class="com.visitek.xyzproject.model.business.User" fetch="join">
+        
+        <many-to-one name="user" class="User" fetch="join">
             <column name="audit_USER" />
         </many-to-one>
+        
         <property name="action" type="java.lang.String">
             <column name="audit_ACTION" />
         </property>

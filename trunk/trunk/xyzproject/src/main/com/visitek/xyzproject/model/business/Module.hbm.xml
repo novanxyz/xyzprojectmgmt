@@ -10,16 +10,16 @@
 			<generator class="native"/>
 		</id>
 		
-		<property name="name">
+		<property name="name" type="java.lang.String" unique="true">
 			<column name="module_name"/>
 		</property>
-		<property name="className">
+		<property name="className" type="java.lang.String" unique="true">
 			<column name="module_class"/>
 		</property>
-		<property name="description">
+		<property name="description" type="java.lang.String" >
 			<column name="module_description"/>			
 		</property>
-		<property name="iconPath" >
+		<property name="iconPath" type="java.lang.String" >
 			<column name="module_icon"/>
 		</property>
 		<property name="status" type="boolean">
@@ -28,10 +28,10 @@
 		<property name="uiActive" type="boolean">
 			<column name="module_uiactive"/>
 		</property>
-		<property name="uiName" >
+		<property name="uiName" type="java.lang.String" >
 			<column name="module_uiName"/>
 		</property>
-		<property name="viewOrder" >
+		<property name="viewOrder" type="integer" unique="true">
 			<column name="module_uiOrder"/>
 		</property>
 		

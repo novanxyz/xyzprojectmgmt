@@ -10,13 +10,13 @@
 			<generator class="native"/>
 		</id>
 		
-		<property name="name">
+		<property name="name" type="java.lang.String" unique="true">
 			<column name="session_name"></column>
 		</property>		
-		<property name="ip">
+		<property name="ip" type="java.lang.String" >
 			<column name="session_clientIP"/>
 		</property>
-		<property name="user">
+		<property name="user" type="java.lang.String" >
 			<column name="session_user"/>			
 		</property>
 		<property name="login" type="java.util.Date">
