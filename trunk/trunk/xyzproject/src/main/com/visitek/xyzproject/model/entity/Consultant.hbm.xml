@@ -4,7 +4,7 @@
 <!-- Generated 05 Jan 10 17:38:06 by Hibernate Tools 3.2.5.Beta -->
 <hibernate-mapping>
     <joined-subclass name="com.visitek.xyzproject.model.entity.Consultant" entity-name="Consultant"     		   		
-    		extends="com.visitek.xyzproject.model.entity.Emplooyee"
+    		extends="Employee"
     		table="consultants">
     	<!--   		
         <id type="java.lang.Long">
@@ -13,7 +13,7 @@
         </id>
         -->
     		
-    	 <key column="consultant_employment" foreign-key="consultant_employment"/>
+    	 <key column="consultant_id" foreign-key="consultant_employment"/>
     		
         <property name="skillType" type="int">
             <column name="consultant_TYPE" />

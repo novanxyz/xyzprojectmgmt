@@ -14,22 +14,28 @@
         <property name="description" type="java.lang.String">
             <column name="task_DESCRIPTION" />
         </property>
-        <one-to-one name="parent" class="com.visitek.xyzproject.model.entity.Task" foreign-key="task_parent" outer-join="true"/>
-        <many-to-one name="project" class="com.visitek.xyzproject.model.entity.Project" fetch="join">
+        
+        <one-to-one name="parent" class="Task" foreign-key="task_parent" outer-join="true"/>
+        
+        <many-to-one name="project" class="Project" fetch="join">
             <column name="task_PROJECT" />
         </many-to-one>
+        
         <set name="departments" inverse="false" lazy="true" table="task_departements">
             <key column="task_id"></key>
-            <many-to-many class="com.visitek.xyzproject.model.entity.Department" column="departement_id"/>
+            <many-to-many class="Department"/>
         </set>
+        
+        
         <set name="contacts" inverse="false" lazy="true" table="task_contacts">
             <key column="task_id"></key>
-            <many-to-many class="com.visitek.xyzproject.model.entity.Contact" column="contact_id"/>
+            <many-to-many class="Contact" column="contact_id"/>
         </set>
-        <many-to-one name="owner" class="com.visitek.xyzproject.model.business.User" fetch="join">
+        
+        <many-to-one name="owner" class="User" fetch="join">
             <column name="task_OWNER"/>
         </many-to-one>
-        <one-to-one name="creator" class="com.visitek.xyzproject.model.business.User" foreign-key="task_creator"/>
+        <one-to-one name="creator" class="User" foreign-key="task_creator"/>
         
         <property name="startDate" type="java.util.Date">
             <column name="task_START_DATE" />
