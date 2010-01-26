@@ -6,6 +6,10 @@ public class DuplicateUserNameException extends Exception {
 		super(string);
 	}
 
+	public DuplicateUserNameException() {
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * 
 	 */
