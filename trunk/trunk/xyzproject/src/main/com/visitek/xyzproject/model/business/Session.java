@@ -5,13 +5,11 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
 import javax.persistence.Version;
 
 import com.visitek.xyzproject.model.AbstractPersistentClass;
 
 @Entity
-@Table(name = "sessions")
 public class Session extends AbstractPersistentClass {
 	/**
 	 * 

@@ -1,37 +1,34 @@
 package com.visitek.xyzproject.model.business;
 
-import static javax.persistence.FetchType.LAZY;
-
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
 import com.visitek.xyzproject.model.AbstractPersistentClass;
 import com.visitek.xyzproject.model.entity.Contact;
 
 @Entity
-@Table(name = "users")
 public class User extends AbstractPersistentClass {
 	private static final long serialVersionUID = 1L;
 
-	@Column(name = "user_username")
+
 	String username;
-	@Column(name = "user_password")
+
 	String password;
-	@Column(name = "user_realname")
+
 	String realname;
-	@Column(name = "user_email")
+
 	String email;
 
 	boolean isActive = false;
 	Set<Role> roles = new HashSet<Role>();;
-
-	@OneToOne(fetch = LAZY)
+	
 	Contact contact;
+
+	public User(String username2) {
+		setUsername(username2);
+	}
 
 	public void addRole(Role role) {
 		getRoles().add(role);

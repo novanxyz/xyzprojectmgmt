@@ -8,7 +8,6 @@ import javax.persistence.Table;
 import com.visitek.xyzproject.model.AbstractPersistentClass;
 
 @Entity
-@Table(name = "auditrails")
 public class AuditTrail extends AbstractPersistentClass {
 	private static final long serialVersionUID = 1L;
 

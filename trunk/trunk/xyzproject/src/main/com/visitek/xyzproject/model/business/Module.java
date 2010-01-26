@@ -1,12 +1,10 @@
 package com.visitek.xyzproject.model.business;
 
 import javax.persistence.Entity;
-import javax.persistence.Table;
 
 import com.visitek.xyzproject.model.AbstractPersistentClass;
 
 @Entity
-@Table(name = "modules")
 public abstract class Module extends AbstractPersistentClass {
 	private static final long serialVersionUID = 1L;
 
