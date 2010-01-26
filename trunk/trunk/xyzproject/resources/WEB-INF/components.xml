@@ -64,7 +64,11 @@
       <bpm:pageflow-definitions></bpm:pageflow-definitions>
    </bpm:jbpm>
    -->
-   
+   <factory name="dbSession" 
+         scope="STATELESS" 
+         auto-create="true" 
+         value="#{entityManager.delegate}"/>
+         
     <factory name="rootUrl"  value="#{facesContext.externalContext.requestContextPath}"/>    
     <factory name="remoteAddr" value="#{facesContext.externalContext.request.remoteAddr}"/>
     <factory name="sessionId"  value="#{facesContext.externalContext.request.session.id}"/>

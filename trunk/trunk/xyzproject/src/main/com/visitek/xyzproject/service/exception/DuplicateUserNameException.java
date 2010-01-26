@@ -2,6 +2,10 @@ package com.visitek.xyzproject.service.exception;
 
 public class DuplicateUserNameException extends Exception {
 
+	public DuplicateUserNameException(String string) {
+		super(string);
+	}
+
 	/**
 	 * 
 	 */
