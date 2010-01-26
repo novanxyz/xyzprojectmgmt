@@ -72,8 +72,7 @@ public class UserService extends BaseService<User> {
 				throw new DuplicateUserNameException();
 		} catch (NoResultException ex) {
 
-			u = new User();
-			u.setUsername(username);
+			u = new User(username);
 			u.setEmail(email);
 			u.setActive(false);
 			u.setPassword(password);
