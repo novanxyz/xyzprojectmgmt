@@ -16,20 +16,20 @@
         <many-to-one name="user" class="User">
             <column name="permission_USER" />
         </many-to-one>
+        
         <many-to-one name="role" class="Role">
             <column name="permission_ROLE" />
         </many-to-one>
-        
-        
-        <property name="level" type="int">
+        <property name="level" type="integer">
             <column name="permission_level" />
         </property>
         <property name="ObjectId" type="java.lang.String">
             <column name="permission_item" />
         </property>
-        <property name="ObjectAcl" type="java.lang.String">
+        <property name="ObjectAcl" type="integer">
             <column name="permission_value" />
         </property>
+        
     </class>
     
     <sql-query name="getUserPermission">

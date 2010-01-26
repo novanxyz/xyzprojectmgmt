@@ -3,7 +3,6 @@ package com.visitek.xyzproject.model.business;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.Table;
 
 import com.visitek.xyzproject.model.AbstractPersistentClass;
 

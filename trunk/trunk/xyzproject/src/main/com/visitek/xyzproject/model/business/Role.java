@@ -1,12 +1,10 @@
 package com.visitek.xyzproject.model.business;
 
 import javax.persistence.Entity;
-import javax.persistence.Table;
 
 import com.visitek.xyzproject.model.AbstractPersistentClass;
 
 @Entity
-
 public class Role extends AbstractPersistentClass {
 	private static final long serialVersionUID = 1L;
 
