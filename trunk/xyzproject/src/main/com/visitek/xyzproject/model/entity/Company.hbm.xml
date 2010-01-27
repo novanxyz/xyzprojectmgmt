@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 19 Jan 10 11:48:51 by Hibernate Tools 3.2.5.Beta -->
+<hibernate-mapping>
+    <class name="com.visitek.xyzproject.model.entity.Company" entity-name="Company" 
+    		table="companies" lazy="true">
+    		
+        <id type="java.lang.Long">
+            <column name="company_id" />
+            <generator class="native" />
+        </id>
+        
+        <property name="name" type="java.lang.String">
+            <column name="company_NAME" />
+        </property>
+        <property name="color" type="java.lang.String">
+            <column name="company_COLOR" />
+        </property>        
+        <property name="description" type="java.lang.String">
+            <column name="company_DESCRIPTION" />
+        </property>
+        
+        
+        <one-to-one name="address" foreign-key="company_address" class="Address"/>
+        <one-to-one name="owner" foreign-key="company_owner" class="Contact"/>
+         
+    </class>
+</hibernate-mapping>
