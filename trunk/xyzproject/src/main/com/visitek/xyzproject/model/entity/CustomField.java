@@ -1,10 +1,7 @@
 package com.visitek.xyzproject.model.entity;
 
-import javax.persistence.Entity;
-
 import com.visitek.xyzproject.model.AbstractPersistentClass;
 
-@Entity
 public class CustomField extends AbstractPersistentClass {
 	private static final long serialVersionUID = 1L;
 

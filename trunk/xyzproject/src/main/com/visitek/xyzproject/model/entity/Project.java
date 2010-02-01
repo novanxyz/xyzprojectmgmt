@@ -4,12 +4,10 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.Set;
 
-import javax.persistence.Entity;
-
 import com.visitek.xyzproject.model.AbstractPersistentClass;
 import com.visitek.xyzproject.model.business.User;
 
-@Entity
+
 public class Project extends AbstractPersistentClass {
 	private static final long serialVersionUID = 1L;
 
@@ -62,8 +60,10 @@ public class Project extends AbstractPersistentClass {
 
 	public Set<Contact> getContacts() {
 
+		
 		Iterator it = getTasks().iterator();
 		Set<Contact> c = contacts;
+		c.add(owner.getContact());
 		while (it.hasNext()) {
 			Task t = (Task) it.next();
 			c.addAll(t.getContacts());

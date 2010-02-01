@@ -126,8 +126,9 @@ public class UserService extends BaseService<User> {
 	public List<User> retrieveUser(String criteria) throws NoSuchUserException {
 
 		try {
-			List<User> ul = getEntityManager().createNamedQuery("UserList")
-					.setParameter("criteria", criteria).getResultList();
+			List<User> ul = getEntityManager().createNamedQuery("userList")
+					.setParameter("criteria", criteria)
+					.getResultList();
 			if (ul.isEmpty())
 				throw new NoSuchUserException();
 			return ul;

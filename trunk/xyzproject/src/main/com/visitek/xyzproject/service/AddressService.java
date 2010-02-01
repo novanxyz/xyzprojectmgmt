@@ -11,8 +11,8 @@ public class AddressService extends BaseService<Address> {
 
 	public Address findAddress(String addr) {
 		try {
-			Address ad = (Address) getEntityManager().createNamedQuery(
-					"searchaddress").setParameter("addr", addr)
+			Address ad = (Address) getEntityManager().createNamedQuery("searchaddress")
+					.setParameter("addr", addr)
 					.getSingleResult();
 			return ad;
 		} catch (Exception e) {
@@ -23,8 +23,9 @@ public class AddressService extends BaseService<Address> {
 
 	public List<Address> findAddresses(String addr) {
 		try {
-			List<Address> ads = getEntityManager().createNamedQuery(
-					"searchaddress").setParameter("addr", addr).getResultList();
+			List<Address> ads = getEntityManager().createNamedQuery("searchaddress")
+			.setParameter("addr", addr)
+			.getResultList();
 			return ads;
 		} catch (Exception e) {
 
@@ -45,8 +46,8 @@ public class AddressService extends BaseService<Address> {
 	public Company getCompanyfromAddress(String str) {
 
 		try {
-			Company comp = (Company) getEntityManager().createNamedQuery(
-					"companybyAddres").setParameter("addr", str)
+			Company comp = (Company) getEntityManager().createNamedQuery("companybyAddres")
+					.setParameter("addr", str)
 					.getSingleResult();
 			return comp;
 		} catch (Exception e) {
@@ -58,8 +59,8 @@ public class AddressService extends BaseService<Address> {
 
 	public Contact getContactfromAddress(String str) {
 		try {
-			return (Contact) getEntityManager().createNamedQuery(
-					"contactbyAddres").setParameter("addr", str)
+			return (Contact) getEntityManager().createNamedQuery("contactbyAddres")
+			.setParameter("addr", str)
 					.getSingleResult();
 		} catch (Exception e) {
 		}
@@ -78,8 +79,8 @@ public class AddressService extends BaseService<Address> {
 
 	public Department getDepartmentfromAddress(String str) {
 		try {
-			return (Department) getEntityManager().createNamedQuery(
-					"deptbyAddres").setParameter("addr", str).getResultList();
+			return (Department) getEntityManager().createNamedQuery("deptbyAddres")
+					.setParameter("addr", str).getResultList();
 		} catch (Exception e) {
 		}
 

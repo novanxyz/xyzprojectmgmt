@@ -1,101 +1,54 @@
 package com.visitek.xyzproject.model.business;
 
 import com.visitek.xyzproject.model.AbstractPersistentClass;
-import com.visitek.xyzproject.model.Duration;
 
 public class Preference extends AbstractPersistentClass {
 	private static final long serialVersionUID = 1L;
 
-	String hostname = "project.novanxyz.com";
-	String locale = "en";
-	String currency = "Rp";
-	int[] workdays = { 1, 2, 3, 4, 5 };
-	String defaultView = "home";
-	String defaultStyle = "blueSKY";
+	User user;
+	Role role;
+	int order;
+	String prefName;
+	String prefValue;
 
-	String smtpServer;
-	String smtpUser;
-	String smtpPassword;
-	int notificationInterval = Duration.DAY;
-
-	public String getCurrency() {
-		return currency;
+	public User getUser() {
+		return user;
 	}
 
-	public String getDefaultStyle() {
-		return defaultStyle;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
-	public String getDefaultView() {
-		return defaultView;
+	public Role getRole() {
+		return role;
 	}
 
-	public String getHostname() {
-		return hostname;
+	public void setRole(Role role) {
+		this.role = role;
 	}
 
-	public String getLocale() {
-		return locale;
+	public int getOrder() {
+		return order;
 	}
 
-	public int getNotificationInterval() {
-		return notificationInterval;
+	public void setOrder(int order) {
+		this.order = order;
 	}
 
-	public String getSmtpPassword() {
-		return smtpPassword;
+	public String getPrefName() {
+		return prefName;
 	}
 
-	public String getSmtpServer() {
-		return smtpServer;
+	public void setPrefName(String prefName) {
+		this.prefName = prefName;
 	}
 
-	public String getSmtpUser() {
-		return smtpUser;
+	public String getPrefValue() {
+		return prefValue;
 	}
 
-	public int[] getWorkdays() {
-		return workdays;
-	}
-
-	public void setCurrency(String currency) {
-		this.currency = currency;
-	}
-
-	public void setDefaultStyle(String defaultStyle) {
-		this.defaultStyle = defaultStyle;
-	}
-
-	public void setDefaultView(String defaultView) {
-		this.defaultView = defaultView;
-	}
-
-	public void setHostname(String hostname) {
-		this.hostname = hostname;
-	}
-
-	public void setLocale(String locale) {
-		this.locale = locale;
-	}
-
-	public void setNotificationInterval(int notificationInterval) {
-		this.notificationInterval = notificationInterval;
-	}
-
-	public void setSmtpPassword(String smtpPassword) {
-		this.smtpPassword = smtpPassword;
-	}
-
-	public void setSmtpServer(String smtpServer) {
-		this.smtpServer = smtpServer;
-	}
-
-	public void setSmtpUser(String smtpUser) {
-		this.smtpUser = smtpUser;
-	}
-
-	public void setWorkdays(int[] workdays) {
-		this.workdays = workdays;
+	public void setPrefValue(String prefValue) {
+		this.prefValue = prefValue;
 	}
 
 }

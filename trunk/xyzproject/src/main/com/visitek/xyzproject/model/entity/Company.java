@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 
 import com.visitek.xyzproject.model.AbstractPersistentClass;
 
-@Entity
+
 public class Company extends AbstractPersistentClass {
 	private static final long serialVersionUID = 1L;
 

@@ -3,12 +3,10 @@ package com.visitek.xyzproject.model.entity;
 import java.util.Date;
 import java.util.Set;
 
-import javax.persistence.Entity;
-
 import com.visitek.xyzproject.model.AbstractPersistentClass;
 import com.visitek.xyzproject.model.business.User;
 
-@Entity
+
 public class Task extends AbstractPersistentClass {
 	private static final long serialVersionUID = 1L;
 
@@ -54,7 +52,8 @@ public class Task extends AbstractPersistentClass {
 	}
 
 	public Set<Contact> getContacts() {
-
+		contacts.add(owner.getContact());
+		contacts.add(creator.getContact());
 		return contacts;
 	}
 

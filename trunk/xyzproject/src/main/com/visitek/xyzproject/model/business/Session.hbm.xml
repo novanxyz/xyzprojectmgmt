@@ -4,7 +4,7 @@
 <!-- Generated 19 Jan 10 11:48:51 by Hibernate Tools 3.2.5.Beta -->
 <hibernate-mapping>
     <class name="com.visitek.xyzproject.model.business.Session" entity-name="Session" 
-    	table="session" lazy="true">
+    	table="sessions" lazy="true">
         <id type="java.lang.Long">
         	<column name="session_id"/>
 			<generator class="native"/>
@@ -26,4 +26,21 @@
 			<column name="session_logout"/>
 		</property>
     </class>
+    <sql-query name="sessionById">
+	  <return alias="s" class="com.visitek.xyzproject.model.business.Session"/>
+	 <![CDATA[
+		select * 
+		from sessions
+		where session_name = :session_id		
+	 ]]>   
+	</sql-query>
+	<sql-query name="getUserSession">
+	  <return alias="s" class="com.visitek.xyzproject.model.business.Session"/>
+	 <![CDATA[
+		select * 
+		from sessions
+		where user_id = :user_id
+		and session_logout = null
+	 ]]>   
+	 </sql-query> 
 </hibernate-mapping>

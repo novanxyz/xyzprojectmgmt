@@ -1,10 +1,8 @@
 package com.visitek.xyzproject.model.business;
 
-import javax.persistence.Entity;
-
 import com.visitek.xyzproject.model.AbstractPersistentClass;
 
-@Entity
+
 public class ValidationRule extends AbstractPersistentClass {
 	public static int VALIDATION_RULE_TYPE_NULL = 0;
 	public static int VALIDATION_RULE_TYPE_UNIQUE = 1;

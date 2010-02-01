@@ -29,16 +29,17 @@ public class Permission {
 		if (!user.equals(null))
 			try {
 				perms = Constants.em.createNamedQuery("getUserPermission")
-						.setParameter("user_id", user.getId()).getResultList();
+									.setParameter("user_id", user.getId())
+									.getResultList();
 				actor = user;
 				Set<Role> group = user.getRoles();
 				Iterator it = group.iterator();
 
 				while (it.hasNext()) {
 					Role r = (Role) it.next();
-					perms.addAll(Constants.em.createNamedQuery(
-							"getRolePermission").setParameter("role_id",
-							r.getId()).setParameter("user_id", user.getId())
+					perms.addAll(Constants.em.createNamedQuery("getRolePermission")
+							.setParameter("role_id",r.getId())
+							.setParameter("user_id", user.getId())
 							.getResultList());
 				}
 			} catch (Exception e) {
@@ -62,18 +63,19 @@ public class Permission {
 				List<AccessControlList> perms = new ArrayList<AccessControlList>();
 				Set<Role> group = user.getRoles();
 
-				Iterator it = group.iterator();
+				Iterator<Role> it = group.iterator();
 
 				while (it.hasNext()) {
-					Role r = (Role) it.next();
-					perms.addAll(Constants.em.createNamedQuery(
-							"getRolePermission").setParameter("role_id",
-							r.getId()).setParameter("user_id", user.getId())
-							.getResultList());
+					Role r = it.next();
+					perms.addAll(Constants.em.createNamedQuery("getRolePermission")
+								.setParameter("role_id",r.getId())
+								.setParameter("user_id", user.getId())
+								.getResultList());
 				}
 
 				perms.addAll(Constants.em.createNamedQuery("getUserPermission")
-						.setParameter("user_id", user.getId()).getResultList());
+						.setParameter("user_id", user.getId())
+						.getResultList());
 				actor = user;
 
 				Iterator<AccessControlList> itr = perms.iterator();
@@ -93,9 +95,10 @@ public class Permission {
 		oid = oid == null || oid.length() > 0 ? "" : "#" + oid;
 		property = oid == null || property.length() > 0 ? "" : "." + property;
 
-		List<AccessControlList> perms = Constants.em.createNamedQuery(
-				"getRolePermission").setParameter("role_id", role.getId())
-				.setParameter("user_id", null).getResultList();
+		List<AccessControlList> perms = Constants.em.createNamedQuery("getRolePermission")
+				.setParameter("role_id", role.getId())
+				.setParameter("user_id", null)
+				.getResultList();
 
 		Iterator<AccessControlList> Itacls = perms.iterator();
 
@@ -103,7 +106,6 @@ public class Permission {
 			AccessControlList acl = Itacls.next();
 			if (acl.getObjectId().equals(module + property + oid)) {
 				// ?????
-
 				acl.setObjectAcl((newacl + acl.getObjectAcl()) % 16);
 				Constants.em.persist(acl);
 			}
@@ -127,10 +129,10 @@ public class Permission {
 
 			try {
 
-				acl = (AccessControlList) Constants.em.createNamedQuery(
-						"getPermissionUser").setParameter("user_id",
-						user != null ? user.getId() : null).setParameter("obj",
-						module + property + oid).getSingleResult();
+				acl = (AccessControlList) Constants.em.createNamedQuery("getPermissionUser")
+						.setParameter("user_id", user != null ? user.getId() : null)
+						.setParameter("obj",module + property + oid)
+						.getSingleResult();
 
 				acl.setObjectAcl(acl.getObjectAcl() + newacl);
 
@@ -158,9 +160,10 @@ public class Permission {
 		oid = oid == null || oid.length() > 0 ? "" : "#" + oid;
 		property = oid == null || property.length() > 0 ? "" : "." + property;
 
-		List<AccessControlList> perms = Constants.em.createNamedQuery(
-				"getRolePermission").setParameter("role_id", role.getId())
-				.setParameter("user_id", user.getId()).getResultList();
+		List<AccessControlList> perms = Constants.em.createNamedQuery("getRolePermission")
+				.setParameter("role_id", role.getId())
+				.setParameter("user_id", user.getId())
+				.getResultList();
 
 		Iterator<AccessControlList> Itacls = perms.iterator();
 
@@ -169,7 +172,6 @@ public class Permission {
 			if (acl.getObjectId().equals(module + property + oid)) {
 				// ?????
 				acl.setObjectAcl((newacl + acl.getObjectAcl()) % 16);
-
 				Constants.em.persist(acl);
 			}
 		}
@@ -225,10 +227,10 @@ public class Permission {
 		oid = oid == null || oid.length() > 0 ? "" : "#" + oid;
 		property = oid == null || property.length() > 0 ? "" : "." + property;
 		try {
-			AccessControlList acl = (AccessControlList) Constants.em
-					.createNamedQuery("getPermissionRole").setParameter(
-							"role_id", role.getId()).setParameter("obj",
-							module + property + oid).getSingleResult();
+			AccessControlList acl = (AccessControlList) Constants.em.createNamedQuery("getPermissionRole")
+							.setParameter("role_id", role.getId())
+							.setParameter("obj",module + property + oid)
+							.getSingleResult();
 
 			Constants.em.remove(acl);
 		} catch (Exception e) {
@@ -241,10 +243,10 @@ public class Permission {
 		property = oid == null || property.length() > 0 ? "" : "." + property;
 
 		try {
-			AccessControlList acl = (AccessControlList) Constants.em
-					.createNamedQuery("getPermissionUser").setParameter(
-							"user_id", user.getId()).setParameter("obj",
-							module + property + oid).getSingleResult();
+			AccessControlList acl = (AccessControlList) Constants.em.createNamedQuery("getPermissionUser")
+							.setParameter("user_id", user.getId())
+							.setParameter("obj",module + property + oid)
+							.getSingleResult();
 			Constants.em.remove(acl);
 		} catch (Exception e) {
 		}

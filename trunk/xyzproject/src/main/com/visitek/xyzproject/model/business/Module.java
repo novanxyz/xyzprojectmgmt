@@ -1,9 +1,9 @@
 package com.visitek.xyzproject.model.business;
-
 import com.visitek.xyzproject.model.AbstractPersistentClass;
 
 
-public abstract class Module extends AbstractPersistentClass {
+
+public class Module extends AbstractPersistentClass {
 	private static final long serialVersionUID = 1L;
 
 	String name;
@@ -11,10 +11,10 @@ public abstract class Module extends AbstractPersistentClass {
 	String uiName;
 
 	String className;
-	String uiActive;
+	boolean uiActive;
 	String iconPath;
 	String status;
-	int viewOrder;
+	int 	viewOrder;
 
 	@Override
 	public String getClassName() {
@@ -39,9 +39,6 @@ public abstract class Module extends AbstractPersistentClass {
 		return status;
 	}
 
-	public String getUiActive() {
-		return uiActive;
-	}
 
 	public String getUiName() {
 		return uiName;
@@ -71,7 +68,7 @@ public abstract class Module extends AbstractPersistentClass {
 		this.status = status;
 	}
 
-	public void setUiActive(String uiActive) {
+	public void setUiActive(boolean uiActive) {
 		this.uiActive = uiActive;
 	}
 

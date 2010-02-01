@@ -2,11 +2,9 @@ package com.visitek.xyzproject.model.business;
 
 import java.util.Set;
 
-import javax.persistence.Entity;
-
 import com.visitek.xyzproject.model.AbstractPersistentClass;
 
-@Entity
+
 public class Validation extends AbstractPersistentClass {
 
 	/**
