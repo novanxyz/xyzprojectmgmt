@@ -37,7 +37,7 @@
 		<![CDATA[
 		select * 
 		from 	permissions
-		where 	permission_USER = :user_id					
+		where 	permission_USER = :user_id
 		]]>		
     </sql-query>
     

@@ -2,11 +2,9 @@ package com.visitek.xyzproject.model.business;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
-
 import com.visitek.xyzproject.model.AbstractPersistentClass;
 
-@Entity
+
 public class AuditTrail extends AbstractPersistentClass {
 	private static final long serialVersionUID = 1L;
 

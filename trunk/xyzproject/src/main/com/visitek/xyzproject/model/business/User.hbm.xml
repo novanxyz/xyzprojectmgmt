@@ -20,7 +20,7 @@
         <property name="realname" type="java.lang.String">
             <column name="USER_REALNAME" />
         </property>
-        <property name="email" type="java.lang.String">
+        <property name="email" type="java.lang.String" unique="true">
             <column name="USER_EMAIL" />
         </property>
         <property name="isActive" type="boolean">
@@ -33,5 +33,35 @@
         </set>
         <one-to-one name="contact" foreign-key="user_contact" class="com.visitek.xyzproject.model.entity.Contact" fetch="select"/>                
     </class>
+    
+    <sql-query name="getUserTask">
+    	<return alias="task" class="com.visitek.xyzproject.model.entity.Task"/>
+		<![CDATA[
+		select 	* 
+		from 	tasks
+		where 	task_owner = :user_id					
+		]]>		
+    </sql-query>
+    
+    <sql-query name="login">    	
+		<![CDATA[
+		select 	count(1)
+		from 	users
+		where 	user_username = :username or user_email = :username
+			and	user_password = password(:password)
+			and user_status = 1
+		]]>		
+    </sql-query>
+    
+    <sql-query name="userList">
+	    <return alias="u" class="com.visitek.xyzproject.model.business.User"/>
+		<![CDATA[
+		select 	*  
+		from 	users
+		where 	:criteria
+		]]>		
+    </sql-query>
+    
+    
     
 </hibernate-mapping>

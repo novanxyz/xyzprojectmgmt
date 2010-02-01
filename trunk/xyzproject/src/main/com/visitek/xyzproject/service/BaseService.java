@@ -46,14 +46,14 @@ public abstract class BaseService<T> {
 	public T findByName(String name, boolean lock) {
 		T entity;
 		if (lock) {
-			entity = (T) getEntityManager().createNamedQuery(
-					"find" + getEntityType() + "byName").setParameter("name",
-					name).getSingleResult();
+			entity = (T) getEntityManager().createNamedQuery("find" + getEntityType() + "byName")
+					.setParameter("name",name)
+					.getSingleResult();
 			em.lock(entity, LockModeType.WRITE);
 		} else
 			entity = (T) getEntityManager().createNamedQuery(
-					"find" + getEntityType() + "byName").setParameter("name",
-					name).getSingleResult();
+					"find" + getEntityType() + "byName").setParameter("name",name)
+					.getSingleResult();
 		return entity;
 	}
 
@@ -62,8 +62,8 @@ public abstract class BaseService<T> {
 	}
 
 	public List<T> listAll() {
-		return getEntityManager().createQuery(
-				"from " + getEntityType().getName()).getResultList();
+		return getEntityManager().createQuery("from " + getEntityType().getName())
+				.getResultList();
 	}
 
 	public T load(Long id) {

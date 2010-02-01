@@ -1,11 +1,9 @@
 package com.visitek.xyzproject.model.entity;
 
-import javax.persistence.Entity;
-
 import com.visitek.xyzproject.model.AbstractPersistentClass;
 import com.visitek.xyzproject.model.business.User;
 
-@Entity
+
 public class Department extends AbstractPersistentClass {
 	private static final long serialVersionUID = 1L;
 

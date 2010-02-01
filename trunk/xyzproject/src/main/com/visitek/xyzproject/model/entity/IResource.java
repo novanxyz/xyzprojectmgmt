@@ -1,10 +1,8 @@
 package com.visitek.xyzproject.model.entity;
 
-import javax.persistence.Entity;
-
 import com.visitek.xyzproject.model.IPersistentObject;
 
-@Entity
+
 public interface IResource extends IPersistentObject {
 
 	public float getCost();

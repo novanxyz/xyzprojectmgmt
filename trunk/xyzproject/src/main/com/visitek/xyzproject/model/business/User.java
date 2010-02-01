@@ -3,25 +3,20 @@ package com.visitek.xyzproject.model.business;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.Entity;
-
 import com.visitek.xyzproject.model.AbstractPersistentClass;
 import com.visitek.xyzproject.model.entity.Contact;
 
-@Entity
+
 public class User extends AbstractPersistentClass {
 	private static final long serialVersionUID = 1L;
 
 	String username;
-
 	String password;
-
 	String realname;
-
 	String email;
 
 	boolean isActive = false;
-	Set<Role> roles = new HashSet<Role>();;
+	Set<Role> roles = new HashSet<Role>();
 
 	Contact contact;
 
@@ -29,8 +24,9 @@ public class User extends AbstractPersistentClass {
 		setUsername(username2);
 	}
 
+
 	public User() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public void addRole(Role role) {

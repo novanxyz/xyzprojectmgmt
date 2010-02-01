@@ -2,11 +2,9 @@ package com.visitek.xyzproject.model.entity;
 
 import java.util.Set;
 
-import javax.persistence.Entity;
-
 import com.visitek.xyzproject.model.business.User;
 
-@Entity
+
 public class Consultant extends Employee implements IResource {
 	private static final long serialVersionUID = 1L;
 	String skillType;

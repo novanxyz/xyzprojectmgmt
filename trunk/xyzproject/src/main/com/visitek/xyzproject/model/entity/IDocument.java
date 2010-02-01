@@ -6,7 +6,6 @@ import javax.persistence.Entity;
 
 import com.visitek.xyzproject.model.IPersistentObject;
 
-@Entity
 public interface IDocument extends IPersistentObject {
 
 	public Date getDate();

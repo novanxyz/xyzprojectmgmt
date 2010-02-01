@@ -2,9 +2,6 @@ package com.visitek.xyzproject.model.entity;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
-
-@Entity
 public class Employee extends Contact {
 	private static final long serialVersionUID = 1L;
 
