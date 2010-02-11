@@ -14,6 +14,22 @@ public class Department extends AbstractPersistentClass {
 	Company company;
 	String description;
 
+	public Department() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Department(String name, Address address, User owner,
+			Department parent, Company company, String description) {
+		super();
+		this.name = name;
+		this.address = address;
+		this.owner = owner;
+		this.parent = parent;
+		this.company = company;
+		this.description = description;
+	}
+
 	public Address getAddress() {
 		return address;
 	}

@@ -39,6 +39,43 @@ public class Task extends AbstractPersistentClass {
 	int notify;
 	int type;
 
+	public Task(String name, String description, Task parent, Project project,
+			Set<Department> departments, Set<Contact> contacts, User owner,
+			User creator, Date startDate, Date endDate, float duration,
+			float worked, int priority, int status, int percentComplete,
+			int weight, int access, int notify, int type, boolean milestone,
+			boolean clientPublish, boolean dynamic, String requirement) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.parent = parent;
+		this.project = project;
+		this.departments = departments;
+		this.contacts = contacts;
+		this.owner = owner;
+		this.creator = creator;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.duration = duration;
+		this.worked = worked;
+		this.priority = priority;
+		this.status = status;
+		this.percentComplete = percentComplete;
+		this.weight = weight;
+		this.access = access;
+		this.notify = notify;
+		this.type = type;
+		this.milestone = milestone;
+		this.clientPublish = clientPublish;
+		this.dynamic = dynamic;
+		this.requirement = requirement;
+	}
+
+	public Task() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	boolean milestone;
 
 	boolean clientPublish;

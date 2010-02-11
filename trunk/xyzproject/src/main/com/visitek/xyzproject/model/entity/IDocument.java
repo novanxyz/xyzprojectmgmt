@@ -2,8 +2,6 @@ package com.visitek.xyzproject.model.entity;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
-
 import com.visitek.xyzproject.model.IPersistentObject;
 
 public interface IDocument extends IPersistentObject {

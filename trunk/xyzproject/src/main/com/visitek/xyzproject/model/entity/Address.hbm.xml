@@ -50,7 +50,7 @@
     </class>
     
     <sql-query name="addrByLocation">
-    	<return alias="addr" class="com.visitek.xyzproject.model.entity.Address"/>
+    	<return alias="addr" class="Address"/>
     	<![CDATA[
         select *
 		from addresses

@@ -11,6 +11,20 @@ public class Preference extends AbstractPersistentClass {
 	String prefName;
 	String prefValue;
 
+	
+	
+	public Preference() {super();}
+
+	public Preference(User user, Role role, int order, String prefName,
+			String prefValue) {
+		super();
+		this.user = user;
+		this.role = role;
+		this.order = order;
+		this.prefName = prefName;
+		this.prefValue = prefValue;
+	}
+
 	public User getUser() {
 		return user;
 	}
@@ -50,5 +64,7 @@ public class Preference extends AbstractPersistentClass {
 	public void setPrefValue(String prefValue) {
 		this.prefValue = prefValue;
 	}
+	
+	
 
 }

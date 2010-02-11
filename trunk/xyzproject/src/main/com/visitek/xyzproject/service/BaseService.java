@@ -10,10 +10,19 @@ import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceContextType;
 
+import org.apache.log4j.Logger;
+
 import com.visitek.xyzproject.app.Constants;
 
 public abstract class BaseService<T> {
-	static EntityManager em;
+	static EntityManager em;	
+	Logger logger = Constants.logger;
+	
+	@PersistenceContext(type = PersistenceContextType.EXTENDED)
+	public void setEntityManager(EntityManager entityManager) {
+		logger.info("Set entityManager from " + entityManager.toString());
+		this.em = entityManager;
+	}
 
 	protected static EntityManager getEntityManager() {
 
@@ -22,11 +31,11 @@ public abstract class BaseService<T> {
 				EntityManagerFactory emf = Persistence
 						.createEntityManagerFactory(Constants.jpaUnitName);
 				em = emf.createEntityManager();
+				
 			} catch (Exception e) {
-				throw new IllegalStateException(
-						"EntityManager has not been set on DAO before usage");
+				throw new IllegalStateException("EntityManager has not been set on DAO before usage");
 			}
-
+		
 		return em;
 	}
 
@@ -37,13 +46,14 @@ public abstract class BaseService<T> {
 				.getGenericSuperclass()).getActualTypeArguments()[0];
 	}
 
-	public T find(Long id) {
+	public  T find(Long id) {
 		T entity = getEntityManager().find(getEntityType(), id);
 		return entity;
 
 	}
 
-	public T findByName(String name, boolean lock) {
+//	public abstract  T findByName(String name, boolean lock) ;
+	/*
 		T entity;
 		if (lock) {
 			entity = (T) getEntityManager().createNamedQuery("find" + getEntityType() + "byName")
@@ -56,7 +66,7 @@ public abstract class BaseService<T> {
 					.getSingleResult();
 		return entity;
 	}
-
+*/
 	public void flush() {
 		getEntityManager().flush();
 	}
@@ -101,14 +111,15 @@ public abstract class BaseService<T> {
 		getEntityManager().refresh(o);
 	}
 
-	@PersistenceContext(type = PersistenceContextType.EXTENDED)
-	public void setEntityManager(EntityManager em) {
-		BaseService.em = em;
-	}
+	
 
-	private Class<T> getEntityType() {
+	private  Class<T> getEntityType() {
 		return entityType;
 
+	}
+	
+	public T createNew(String templateName){
+		return null;
 	}
 
 }

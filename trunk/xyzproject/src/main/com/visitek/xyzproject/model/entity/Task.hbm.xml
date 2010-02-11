@@ -23,7 +23,7 @@
         
         <set name="departments" inverse="false" lazy="true" table="task_departements">
             <key column="task_id"></key>
-            <many-to-many class="Department"/>
+            <many-to-many class="Department" column="dept_id"/>
         </set>
         
         
@@ -59,7 +59,7 @@
             <column name="task_PERCENT_COMPLETE" />
         </property>
         <property name="weight" type="int">
-            <column name="task_PRIORITY" />
+            <column name="task_weight" />
         </property>
         <property name="access" type="int">
             <column name="task_ACCESS" />

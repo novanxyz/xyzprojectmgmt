@@ -8,7 +8,12 @@ import com.visitek.xyzproject.model.AbstractPersistentClass;
 import com.visitek.xyzproject.model.business.User;
 
 
+/**
+ * @author x
+ *
+ */
 public class Project extends AbstractPersistentClass {
+
 	private static final long serialVersionUID = 1L;
 
 	int status;
@@ -23,7 +28,7 @@ public class Project extends AbstractPersistentClass {
 
 	String url;
 
-	String descripion;
+	String description;
 
 	String colorId;
 
@@ -37,6 +42,42 @@ public class Project extends AbstractPersistentClass {
 	Date startDate;
 
 	Date endDate;
+
+		
+	public Project() {super();}
+	
+	public Project (String name, String code){
+		super();
+		this.name = name;
+		this.code = code;
+	}
+
+
+	public Project(int status, int percentComplete, int priority, int type,
+			String name, String shortName, String code, String url,
+			String descripion, String colorId, User owner, Company company,
+			Company internalCompany, Set<Contact> contacts, Set<Task> tasks,
+			Date startDate, Date endDate) {
+		super();
+		this.status = status;
+		this.percentComplete = percentComplete;
+		this.priority = priority;
+		this.type = type;
+		this.name = name;
+		this.shortName = shortName;
+		this.code = code;
+		this.url = url;
+		this.description = descripion;
+		this.colorId = colorId;
+		this.owner = owner;
+		this.company = company;
+		this.internalCompany = internalCompany;
+		this.contacts = contacts;
+		this.tasks = tasks;
+		this.startDate = startDate;
+		this.endDate = endDate;
+	}
+
 
 	public void addContact(Contact con) {
 		getContacts().add(con);
@@ -71,8 +112,8 @@ public class Project extends AbstractPersistentClass {
 		return c;
 	}
 
-	public String getDescripion() {
-		return descripion;
+	public String getDescription() {
+		return description;
 	}
 
 	public Date getEndDate() {
@@ -155,8 +196,8 @@ public class Project extends AbstractPersistentClass {
 		this.contacts = contacts;
 	}
 
-	public void setDescripion(String descripion) {
-		this.descripion = descripion;
+	public void setDescripion(String description) {
+		this.description = description;
 	}
 
 	public void setEndDate(Date endDate) {

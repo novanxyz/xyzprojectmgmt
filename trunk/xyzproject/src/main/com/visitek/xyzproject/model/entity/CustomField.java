@@ -11,6 +11,24 @@ public class CustomField extends AbstractPersistentClass {
 
 	String childModule;
 	Long childObjectId;
+	
+	
+	
+
+	public CustomField() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public CustomField(String parentModule, String parentPropertyName,
+			Long parentObjectId, String childModule, Long childObjectId) {
+		super();
+		this.parentModule = parentModule;
+		this.parentPropertyName = parentPropertyName;
+		this.parentObjectId = parentObjectId;
+		this.childModule = childModule;
+		this.childObjectId = childObjectId;
+	}
 
 	public String getChildModule() {
 		return childModule;

@@ -5,37 +5,39 @@
 <hibernate-mapping>
     <class name="com.visitek.xyzproject.model.business.User" 
     		entity-name="User"     	
-    		table="users" lazy="true">    		
+    		table="users" lazy="true">
+    		
     	<id type="java.lang.Long">
             <column name="user_id" />
             <generator class="native" />
         </id>
         
-        <property name="username" type="java.lang.String" unique="true">
+        <property name="username" type="string" unique="true" not-null="true">
             <column name="USER_USERNAME" />
         </property>
-        <property name="password" type="java.lang.String" >
+        <property name="password" type="string" not-null="true">
             <column name="USER_PASSWORD" />
         </property>
-        <property name="realname" type="java.lang.String">
+        <property name="realname" type="string">
             <column name="USER_REALNAME" />
         </property>
-        <property name="email" type="java.lang.String" unique="true">
+        <property name="email" type="string" unique="true">
             <column name="USER_EMAIL" />
         </property>
-        <property name="isActive" type="boolean">
-            <column name="USER_status" />
+        
+        <property name="active" type="boolean" >
+            <column name="user_status" />
         </property>
         
         <set name="roles" inverse="false" lazy="true" table="user_roles">
             <key column="user_id" />           
             <one-to-many class="Role" />	                        
         </set>
-        <one-to-one name="contact" foreign-key="user_contact" class="com.visitek.xyzproject.model.entity.Contact" fetch="select"/>                
+        <one-to-one name="contact" foreign-key="user_contact" class="Contact" fetch="select" />                
     </class>
     
     <sql-query name="getUserTask">
-    	<return alias="task" class="com.visitek.xyzproject.model.entity.Task"/>
+    	<return alias="task" class="Task"/>
 		<![CDATA[
 		select 	* 
 		from 	tasks
@@ -54,7 +56,7 @@
     </sql-query>
     
     <sql-query name="userList">
-	    <return alias="u" class="com.visitek.xyzproject.model.business.User"/>
+	    <return alias="u" class="User"/>
 		<![CDATA[
 		select 	*  
 		from 	users

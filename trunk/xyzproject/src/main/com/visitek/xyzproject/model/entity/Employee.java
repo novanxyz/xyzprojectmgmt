@@ -10,6 +10,21 @@ public class Employee extends Contact {
 	Date joinDate;
 	int spk_type;
 
+	
+	
+	public Employee() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Employee(String nIK, int grade, Date joinDate, int spkType) {
+		super();
+		NIK = nIK;
+		this.grade = grade;
+		this.joinDate = joinDate;
+		spk_type = spkType;
+	}
+
 	public int getGrade() {
 		return grade;
 	}

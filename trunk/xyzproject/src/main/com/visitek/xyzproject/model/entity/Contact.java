@@ -9,22 +9,40 @@ public class Contact extends AbstractPersistentClass {
 	private static final long serialVersionUID = 1L;
 
 	String firstname;
-
 	String lastname;
-
 	String orderby;
-
 	String title;
-
 	String job;
-
-	Address address;
-
+	Address address = new Address();
 	Company company;
-
 	Department department;
+	Date birthday ;
+	
 
-	Date birthday;
+	public Contact() {	super();}
+	
+	public Contact(String name, String email){
+		super();
+		firstname = name.split(" ")[0];
+		lastname = name.split(" ")[1];
+		setEmail(email);
+	}
+	
+
+	public Contact(String firstname, String lastname, String orderby,
+			String title, String job, Address address, Company company,
+			Department department, Date birthday) {
+		super();
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.orderby = orderby;
+		this.title = title;
+		this.job = job;
+		this.address = address;
+		this.company = company;
+		this.department = department;
+		this.birthday = birthday;
+	}
 
 	public Address getAddress() {
 		return address;
@@ -32,6 +50,13 @@ public class Contact extends AbstractPersistentClass {
 
 	public Date getBirthday() {
 		return birthday;
+	}
+	
+	public void setEmail(String email){
+		this.getAddress().setEmail(email);
+	}
+	public String getEmail(){
+		return getAddress().getEmail();
 	}
 
 	public Company getCompany() {

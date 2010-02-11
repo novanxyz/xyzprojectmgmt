@@ -21,6 +21,20 @@ public class AccessControlList extends AbstractPersistentClass {
 	String ObjectId; // blank untuk semua
 	int ObjectAcl; // blank meants not for all
 
+	public AccessControlList() {
+		super();	
+	}
+
+	public AccessControlList(User user, Role role, int level, String objectId,
+			int objectAcl) {
+		super();
+		this.user = user;
+		this.role = role;
+		this.level = level;
+		ObjectId = objectId;
+		ObjectAcl = objectAcl;
+	}
+
 	public int getLevel() {
 		return level;
 	}

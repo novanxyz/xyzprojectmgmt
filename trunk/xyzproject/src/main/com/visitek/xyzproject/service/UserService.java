@@ -2,6 +2,9 @@ package com.visitek.xyzproject.service;
 
 import java.util.List;
 
+import javax.ejb.Local;
+import javax.ejb.Stateless;
+import javax.persistence.LockModeType;
 import javax.persistence.NoResultException;
 import javax.persistence.NonUniqueResultException;
 
@@ -12,8 +15,27 @@ import com.visitek.xyzproject.service.exception.InvalidEmailException;
 import com.visitek.xyzproject.service.exception.InvalidPasswordException;
 import com.visitek.xyzproject.service.exception.NoSuchUserException;
 
+
 public class UserService extends BaseService<User> {
 
+	
+	public static User findByName(String name, boolean lock){
+		User entity = null;
+		if (lock)	{
+			entity = (User) getEntityManager().createNamedQuery("findUserbyName")
+			.setParameter("name",name)
+			.getSingleResult();
+			getEntityManager().lock(entity, LockModeType.WRITE);
+			
+		} else {
+			entity = (User) getEntityManager().createNamedQuery("findUserbyName")
+			.setParameter("name",name)
+			.getSingleResult();		
+			
+		}
+		return entity;
+	}
+	
 	public void activateUser(User user) {
 		user.setActive(true);
 		getEntityManager().persist(user);

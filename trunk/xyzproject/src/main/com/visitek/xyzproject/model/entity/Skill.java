@@ -8,15 +8,32 @@ public class Skill extends AbstractPersistentClass {
 	String name;
 	String description;
 
-	int level;
+	String keyword;
+	
+	
+	
+
+	public Skill() {
+		super();
+		
+	}
+
+
+
+	public Skill(String name, String description, String keyword) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.keyword = keyword;
+	}
+
+
 
 	public String getDescription() {
 		return description;
 	}
 
-	public int getLevel() {
-		return level;
-	}
+	
 
 	public String getName() {
 		return name;
@@ -25,13 +42,22 @@ public class Skill extends AbstractPersistentClass {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-	public void setLevel(int level) {
-		this.level = level;
-	}
+	
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+
+
+	public String getKeyword() {
+		return keyword;
+	}
+
+
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
 	}
 
 }

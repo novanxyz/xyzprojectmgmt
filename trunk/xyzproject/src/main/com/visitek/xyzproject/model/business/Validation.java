@@ -6,10 +6,6 @@ import com.visitek.xyzproject.model.AbstractPersistentClass;
 
 
 public class Validation extends AbstractPersistentClass {
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	String name;
@@ -19,6 +15,20 @@ public class Validation extends AbstractPersistentClass {
 	boolean type;
 
 	Set<ValidationRule> rules;
+	
+	
+
+	public Validation() {super();}
+
+	public Validation(String name, String module, String property,
+			boolean type, Set<ValidationRule> rules) {
+		super();
+		this.name = name;
+		this.module = module;
+		this.property = property;
+		this.type = type;
+		this.rules = rules;
+	}
 
 	public void addRule(ValidationRule rule) {
 		getRules().add(rule);
