@@ -22,7 +22,7 @@
 			<column name="module_uiName"/>
 		</property>
 		
-		<property name="className" type="string" unique="true">
+		<property name="entityName" type="string" unique="true">
 			<column name="module_class"/>
 		</property>
 		<property name="uiActive" type="java.lang.Boolean" >
