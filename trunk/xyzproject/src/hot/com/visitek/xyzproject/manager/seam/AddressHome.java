@@ -5,34 +5,34 @@ import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.web.RequestParameter;
 import org.jboss.seam.framework.EntityHome;
 
-import com.visitek.xyzproject.model.business.User;
+import com.visitek.xyzproject.model.entity.Address;
 
-@Name("userHome")
-public class UserHome extends EntityHome<User>
-{
-    @RequestParameter Long userId;
+@Name("addressHome")
+public class AddressHome extends EntityHome<Address>{
+    @RequestParameter 
+    private Long addrId;
 
     @Override
     public Object getId()
     {
-        if (userId == null)
+        if (addrId == null)
         {
             return super.getId();
         }
         else
         {
-            return userId;
+            return addrId;
         }
     }
 
-    @Override @Begin
+    @Override @Begin(join=true)
     public void create() {
         super.create();
     }
     @Override
-	protected User createInstance() {
-		User user = new User();
-		return user;
+	protected Address createInstance() {
+    	Address addr = new Address();
+		return addr;
 	}
 
 	public void load() {
@@ -49,8 +49,16 @@ public class UserHome extends EntityHome<User>
 		return true;
 	}
 
-	public User getDefinedInstance() {
+	public Address getDefinedInstance() {
 		return isIdDefined() ? getInstance() : null;
+	}
+
+	public Long getAddrId() {
+		return addrId;
+	}
+
+	public void setAddrId(Long addrId) {
+		this.addrId = addrId;
 	}
 
 
