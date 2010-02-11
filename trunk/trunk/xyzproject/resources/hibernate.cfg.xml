@@ -50,7 +50,6 @@
 		<property name="auto-import">false</property>
 		<property name="hibernate.generate_statistics">true</property>
 
-
 		
 		<property name="hibernate.archive.autodetection"></property>
 		<property name="hibernate.ejb.autodetection"></property>		
