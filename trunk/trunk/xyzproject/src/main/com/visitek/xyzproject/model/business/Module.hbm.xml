@@ -24,7 +24,7 @@
 		<property name="entityName" type="string" unique="true">
 			<column name="module_class"/>
 		</property>
-		<property name="uiActive" type="boolean" >
+		<property name="uiActive" type="boolean" access="field" >
 			<column name="module_uiactive"/>
 		</property>		
 		<property name="iconPath" type="string" >
