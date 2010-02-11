@@ -14,6 +14,22 @@ public class Leave extends AbstractPersistentClass {
 	String reason;
 	boolean approved;
 
+	
+	public Leave() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Leave(Employee employee, Date startDate, Date endDate,
+			String reason, boolean approved) {
+		super();
+		this.employee = employee;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.reason = reason;
+		this.approved = approved;
+	}
+
 	public Employee getEmployee() {
 		return employee;
 	}

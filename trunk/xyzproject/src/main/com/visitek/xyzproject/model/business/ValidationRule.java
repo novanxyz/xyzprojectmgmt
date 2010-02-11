@@ -4,17 +4,11 @@ import com.visitek.xyzproject.model.AbstractPersistentClass;
 
 
 public class ValidationRule extends AbstractPersistentClass {
+	private static final long serialVersionUID = 1L;
 	public static int VALIDATION_RULE_TYPE_NULL = 0;
 	public static int VALIDATION_RULE_TYPE_UNIQUE = 1;
 	public static int VALIDATION_RULE_TYPE_RANGE = 2;
 	public static int VALIDATION_RULE_TYPE_FORMAT = 3;
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
-	int validation_id;
 
 	String name;
 	String testExpression;
@@ -25,6 +19,34 @@ public class ValidationRule extends AbstractPersistentClass {
 	int type;
 	int group;
 	int priority;
+	
+	
+
+	public ValidationRule() {
+		super();	
+	}
+	
+
+	public ValidationRule(String name) {
+		super();
+		this.name = name;
+	}
+
+
+	public ValidationRule(String name, String testExpression,
+			String trueFormula, String falseFormula, String exceptionMessage,
+			int type, int group, int priority) {
+		super();
+	
+		this.name = name;
+		this.testExpression = testExpression;
+		this.trueFormula = trueFormula;
+		this.falseFormula = falseFormula;
+		this.exceptionMessage = exceptionMessage;
+		this.type = type;
+		this.group = group;
+		this.priority = priority;
+	}
 
 	public String getExceptionMessage() {
 		return exceptionMessage;

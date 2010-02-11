@@ -23,7 +23,7 @@
         <property name="level" type="integer">
             <column name="permission_level" />
         </property>
-        <property name="ObjectId" type="java.lang.String">
+        <property name="ObjectId" type="string">
             <column name="permission_item" />
         </property>
         <property name="ObjectAcl" type="integer">
@@ -33,7 +33,7 @@
     </class>
     
     <sql-query name="getUserPermission">
-    	<return alias="acl" class="com.visitek.xyzproject.model.business.AccessControlList"/>
+    	<return alias="acl" class="AccessControlList"/>
 		<![CDATA[
 		select * 
 		from 	permissions
@@ -43,7 +43,7 @@
     
     
     <sql-query name="getRolePermission">
-    <return alias="acl" class="com.visitek.xyzproject.model.business.AccessControlList"/>
+    <return alias="acl" class="AccessControlList"/>
     <![CDATA[
 		select 	* 
 		from 	permissions
@@ -53,7 +53,7 @@
     </sql-query>
     
     <sql-query name="getUserRolePermission">
-    <return alias="acl" class="com.visitek.xyzproject.model.business.AccessControlList"/>
+    <return alias="acl" class="AccessControlList"/>
     <![CDATA[
 		select 	* 
 		from 	permissions

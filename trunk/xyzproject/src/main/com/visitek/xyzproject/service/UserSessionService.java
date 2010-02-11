@@ -5,7 +5,7 @@ import java.util.Date;
 import com.visitek.xyzproject.model.business.Session;
 import com.visitek.xyzproject.model.business.User;
 import com.visitek.xyzproject.service.exception.InvalidLoginException;
-import com.visitek.xyzproject.util.Logger;
+
 
 public class UserSessionService extends BaseService<Session>{
 
@@ -28,9 +28,9 @@ public class UserSessionService extends BaseService<Session>{
 		}
 	}
 
-	public Session login(String username, String password,
+	public static Session login(String username, String password,
 			String Ipaddress, String sessId) throws InvalidLoginException {
-		Logger.info("authenticating {0}", username);
+		
 
 		User user = (User) getEntityManager().createNamedQuery("login")
 				.setParameter("username", username)
@@ -43,22 +43,22 @@ public class UserSessionService extends BaseService<Session>{
 		session = new Session();
 		session.setUser(user);
 		session.setLogIn(new Date());
-		session.setIp(Ipaddress);
+		session.setRemoteAddr(Ipaddress);
 		session.setName(sessId);
-		persist(session);
+		getEntityManager().persist(session);
 		return session;
 	}
 
 	
-	public boolean logout(Session sess) {
+	public static boolean logout(Session sess) {
 		
 		sess.setLogOut(new Date());
-		persist(sess);
+		getEntityManager().persist(sess);
 		session = null;
 		return true;
 	}
 
-	public boolean logout(User user, String sess_id)
+	public static boolean logout(User user, String sess_id)
 			throws InvalidLoginException {
 
 		Session s = (Session) getEntityManager().createNamedQuery("getUserSession")
@@ -68,5 +68,14 @@ public class UserSessionService extends BaseService<Session>{
 			throw new InvalidLoginException();
 		return logout(s);
 	}
+
+	public static Session getCurrentUserSession(String username) {		
+		User u = UserService.findByName(username,false);
+		
+		
+		return null;
+	}
+
+	
 
 }

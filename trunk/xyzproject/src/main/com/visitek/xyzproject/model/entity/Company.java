@@ -1,7 +1,5 @@
 package com.visitek.xyzproject.model.entity;
 
-import javax.persistence.Entity;
-
 import com.visitek.xyzproject.model.AbstractPersistentClass;
 
 
@@ -14,6 +12,22 @@ public class Company extends AbstractPersistentClass {
 	Contact owner;
 	String color;
 	String description;
+	
+	public Company() {super();	}
+	public Company(String name ) {
+		super();	
+		this.name = name;
+	}
+
+	public Company(String name, Address address, Contact owner, String color,
+			String description) {
+		super();
+		this.name = name;
+		this.address = address;
+		this.owner = owner;
+		this.color = color;
+		this.description = description;
+	}
 
 	public Address getAddress() {
 		return address;

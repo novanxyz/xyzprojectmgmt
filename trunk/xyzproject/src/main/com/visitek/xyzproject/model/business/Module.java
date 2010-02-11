@@ -10,19 +10,52 @@ public class Module extends AbstractPersistentClass {
 	String description;
 	String uiName;
 
-	String className;
+	String entityName;
 	boolean uiActive;
 	String iconPath;
 	String status;
 	int 	viewOrder;
 
-	@Override
-	public String getClassName() {
-		return className;
+	
+	public Module(String name) {
+		super();
+		this.name = name;
+	}
+	
+
+	public Module(String name, String entityName) {
+		super();
+		this.name = name;
+		this.uiName = name;
+		this.entityName = entityName;
+	}
+
+
+	public Module() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Module(String name, String description, String uiName,
+			String entityName, boolean uiActive, String iconPath,
+			String status, int viewOrder) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.uiName = uiName;
+		this.entityName = entityName;
+		this.uiActive = uiActive;
+		this.iconPath = iconPath;
+		this.status = status;
+		this.viewOrder = viewOrder;
 	}
 
 	public String getDescription() {
 		return description;
+	}
+	
+	public boolean isUiActive(){
+			return uiActive;
 	}
 
 	public String getIconPath() {
@@ -48,10 +81,7 @@ public class Module extends AbstractPersistentClass {
 		return viewOrder;
 	}
 
-	public void setClassName(String className) {
-		this.className = className;
-	}
-
+	
 	public void setDescription(String description) {
 		this.description = description;
 	}
@@ -78,6 +108,14 @@ public class Module extends AbstractPersistentClass {
 
 	public void setViewOrder(int viewOrder) {
 		this.viewOrder = viewOrder;
+	}
+
+	public String getEntityName() {
+		return entityName;
+	}
+
+	public void setEntityName(String entityName) {
+		this.entityName = entityName;
 	}
 
 }

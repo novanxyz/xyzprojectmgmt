@@ -10,7 +10,7 @@
     		<generator class="native"></generator>
     	</id>
 
-        <property name="name" type="java.lang.String">
+        <property name="name" type="string" not-null="true">
             <column name="dept_NAME" />
         </property>
         <many-to-one name="address" class="Address" fetch="join">

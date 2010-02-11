@@ -56,8 +56,7 @@ public class Constants {
 
 			try {
 				// try to load from current dir
-				InputStream is = new FileInputStream(new File(
-						LOG4J_PROPERTIES_FILE_NAME));
+				InputStream is = new FileInputStream(new File(LOG4J_PROPERTIES_FILE_NAME));
 				props.load(is);
 			} catch (Exception ex) {
 				// try to load from resource
@@ -78,8 +77,7 @@ public class Constants {
 		Properties props = new Properties();
 		try {
 			// try to load from current dir
-			InputStream is = new FileInputStream(new File(
-					DEFAULT_PROPERTIES_FILE_NAME));
+			InputStream is = new FileInputStream(new File(DEFAULT_PROPERTIES_FILE_NAME));
 			props.load(is);
 		} catch (Exception ex) {
 			// configuration file not found as resource, try to load from

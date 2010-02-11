@@ -13,21 +13,22 @@
 		<property name="name" type="java.lang.String" unique="true">
 			<column name="session_name"></column>
 		</property>		
-		<property name="ip" type="java.lang.String" >
+		<property name="remoteAddr" type="java.lang.String" >
 			<column name="session_clientIP"/>
 		</property>
 		<property name="user" type="java.lang.String" >
 			<column name="session_user"/>			
 		</property>
-		<property name="login" type="java.util.Date">
+		<property name="logIn" type="java.util.Date">
 			<column name="session_login"/>
 		</property>
-		<property name="logout" type="java.util.Date">
+		<property name="logOut" type="java.util.Date">
 			<column name="session_logout"/>
 		</property>
     </class>
+    
     <sql-query name="sessionById">
-	  <return alias="s" class="com.visitek.xyzproject.model.business.Session"/>
+	  <return alias="s" class="Session"/>
 	 <![CDATA[
 		select * 
 		from sessions
@@ -35,7 +36,7 @@
 	 ]]>   
 	</sql-query>
 	<sql-query name="getUserSession">
-	  <return alias="s" class="com.visitek.xyzproject.model.business.Session"/>
+	  <return alias="s" class="Session"/>
 	 <![CDATA[
 		select * 
 		from sessions

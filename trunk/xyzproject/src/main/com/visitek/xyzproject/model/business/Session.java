@@ -2,20 +2,14 @@ package com.visitek.xyzproject.model.business;
 
 import java.util.Date;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Version;
-
 import com.visitek.xyzproject.model.AbstractPersistentClass;
 
 
 public class Session extends AbstractPersistentClass {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	// seam-gen attributes (you should probably edit these)
-	private Integer version;
+
 	private String name;
 
 	/**
@@ -23,17 +17,23 @@ public class Session extends AbstractPersistentClass {
      */
 	private User user;
 
-	private String ip;
+	private String remoteAddr;
 	private Date logIn;
 	private Date logOut;
 
-	// add additional entity attributes
 
-	// seam-gen attribute getters/setters with annotations (you probably should
-	// edit)
 
-	public String getIp() {
-		return ip;
+
+	public Session() {		super();}
+
+	public Session(String name, User user, String remoteAddr, Date logIn,
+			Date logOut) {
+		super();
+		this.name = name;
+		this.user = user;
+		this.remoteAddr = remoteAddr;
+		this.logIn = logIn;
+		this.logOut = logOut;
 	}
 
 	public Date getLogIn() {
@@ -52,16 +52,7 @@ public class Session extends AbstractPersistentClass {
 		return user;
 	}
 
-	@Id
-	@GeneratedValue
-	@Version
-	public Integer getVersion() {
-		return version;
-	}
 
-	public void setIp(String ip) {
-		this.ip = ip;
-	}
 
 	public void setLogIn(Date logIn) {
 		this.logIn = logIn;
@@ -77,6 +68,14 @@ public class Session extends AbstractPersistentClass {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public String getRemoteAddr() {
+		return remoteAddr;
+	}
+
+	public void setRemoteAddr(String remoteAddr) {
+		this.remoteAddr = remoteAddr;
 	}
 
 }

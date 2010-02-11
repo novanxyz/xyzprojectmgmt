@@ -6,27 +6,41 @@ import com.visitek.xyzproject.model.AbstractPersistentClass;
 public class Address extends AbstractPersistentClass {
 	private static final long serialVersionUID = 1L;
 
-	protected static String street;
+	protected String street;
+	protected String city;
+	protected String state;
+	protected String country;
+	protected String zipCode;
+	protected String phoneNo;
+	protected String mobileNo;
+	protected String faxNo;
+	protected String email;
+	protected String url;
+	protected String location;
 
-	protected static String city;
+	
+	
+	public Address() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-	protected static String state;
-
-	protected static String country;
-
-	protected static String zipCode;
-
-	protected static String phoneNo;
-
-	protected static String mobileNo;
-
-	protected static String faxNo;
-
-	protected static String email;
-
-	protected static String url;
-
-	protected static String location;
+	public Address(String street, String city, String state, String country,
+			String zipCode, String phoneNo, String mobileNo, String faxNo,
+			String email, String url, String location) {
+		super();
+		this.street = street;
+		this.city = city;
+		this.state = state;
+		this.country = country;
+		this.zipCode = zipCode;
+		this.phoneNo = phoneNo;
+		this.mobileNo = mobileNo;
+		this.faxNo = faxNo;
+		this.email = email;
+		this.url = url;
+		this.location = location;
+	}
 
 	public String getCity() {
 		return city;
@@ -73,47 +87,51 @@ public class Address extends AbstractPersistentClass {
 	}
 
 	public void setCity(String city) {
-		Address.city = city;
+		this.city = city;
 	}
 
 	public void setCountry(String country) {
-		Address.country = country;
+		this.country = country;
 	}
 
 	public void setEmail(String email) {
-		Address.email = email;
+		this.email = email;
 	}
 
 	public void setFaxNo(String faxNo) {
-		Address.faxNo = faxNo;
+		this.faxNo = faxNo;
 	}
 
 	public void setLocation(String location) {
-		Address.location = location;
+		this.location = location;
 	}
 
 	public void setMobileNo(String mobileNo) {
-		Address.mobileNo = mobileNo;
+		this.mobileNo = mobileNo;
 	}
 
 	public void setPhoneNo(String phoneNo) {
-		Address.phoneNo = phoneNo;
+		this.phoneNo = phoneNo;
 	}
 
 	public void setState(String state) {
-		Address.state = state;
+		this.state = state;
 	}
 
 	public void setStreet(String street) {
-		Address.street = street;
+		this.street = street;
 	}
 
 	public void setUrl(String url) {
-		Address.url = url;
+		this.url = url;
 	}
 
 	public void setZipCode(String zipCode) {
-		Address.zipCode = zipCode;
+		this.zipCode = zipCode;
+	}
+	
+	public String[] langlot(){		
+		return location.split(",");
 	}
 
 	@Override
@@ -122,5 +140,4 @@ public class Address extends AbstractPersistentClass {
 				+ zipCode + "\n" + country + "\nemail: " + email
 				+ "\twebsite: " + url;
 	}
-
 }

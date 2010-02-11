@@ -51,6 +51,8 @@ public class Permission {
 			AccessControlList acl = it.next();
 			propertyAcl.put(acl.getObjectId(), acl.getObjectAcl());
 		}
+		
+		
 
 	}
 
@@ -250,7 +252,6 @@ public class Permission {
 			Constants.em.remove(acl);
 		} catch (Exception e) {
 		}
-
 	}
 
 	public int strToPermission(String aclstr) {
@@ -264,6 +265,10 @@ public class Permission {
 		if (aclstr.indexOf("d") >= 0)
 			p += AccessControlList.ACL_PERMISSION_DELETE;
 		return p;
+	}
+	
+	public String queryPermission(AccessControlList acl){
+		return null;
 	}
 
 }

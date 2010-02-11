@@ -13,21 +13,25 @@
         </id>
         -->
     		
-    	 <key column="consultant_id" foreign-key="consultant_employment"/>
-    		
-        <property name="skillType" type="int">
-            <column name="consultant_TYPE" />
-        </property>
-        <property name="skillLevel" type="int">
-            <column name="consultant_level" />
-        </property>
-        
+    	<key column="consultant_id" foreign-key="consultant_employment"/>
+    					
         <property name="load" type="float">
-            <column name="consultant_LOAD" />
+            <column name="consultant_load" />
         </property>
         <property name="cost" type="float">
             <column name="consultant_cost" />
         </property>
+        
+        <!-- 
+        <set name="skillSet" table="consultant_skill">
+		    <key column="consutant_id"/>
+		    <composite-element class="com.visitek.xyzproject.model.entity.ConsultantSkill">        	
+    	    <many-to-one name="skill" class="Skill" not-null="true" column="skill_id" foreign-key="skill_id"/>
+    	    <property name="level" type="integer" />
+    	    <property name="experience" type="string" />
+		    </composite-element>
+		</set>
+		 -->
     </joined-subclass>
     
 </hibernate-mapping>

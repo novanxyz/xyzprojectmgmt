@@ -15,7 +15,8 @@ public class User extends AbstractPersistentClass {
 	String realname;
 	String email;
 
-	boolean isActive = false;
+	boolean active = false;
+	
 	Set<Role> roles = new HashSet<Role>();
 
 	Contact contact;
@@ -23,6 +24,26 @@ public class User extends AbstractPersistentClass {
 	public User(String username2) {
 		setUsername(username2);
 	}
+	
+
+
+	public User(String username, String password) {
+		super();
+		this.username = username;
+		this.password = password;
+	}
+	
+
+
+	public User(String username, String password, String realname,String email) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.realname = realname;
+		this.email = email;		
+		this.contact = new Contact(realname,email);		
+	}
+
 
 
 	public User() {
@@ -52,7 +73,6 @@ public class User extends AbstractPersistentClass {
 	}
 
 	public Set<Role> getRoles() {
-
 		return roles;
 	}
 
@@ -61,7 +81,7 @@ public class User extends AbstractPersistentClass {
 	}
 
 	public boolean isActive() {
-		return isActive;
+		return active;
 	}
 
 	public void removeRole(Role role) {
@@ -69,7 +89,7 @@ public class User extends AbstractPersistentClass {
 	}
 
 	public void setActive(boolean isActive) {
-		this.isActive = isActive;
+		this.active = isActive;
 	}
 
 	public void setContact(Contact contact) {

@@ -22,6 +22,21 @@ public class AuditTrail extends AbstractPersistentClass {
 		super();
 		this.timestamp = new Date();
 	}
+	
+
+	public AuditTrail(Date timestamp, User user, String action, String module,
+			Long objectId, Object oldValue, Object newValue, String field) {
+		super();
+		this.timestamp = timestamp;
+		this.user = user;
+		this.action = action;
+		this.module = module;
+		this.objectId = objectId;
+		this.oldValue = oldValue;
+		this.newValue = newValue;
+		this.field = field;
+	}
+
 
 	public String getAction() {
 		return action;
