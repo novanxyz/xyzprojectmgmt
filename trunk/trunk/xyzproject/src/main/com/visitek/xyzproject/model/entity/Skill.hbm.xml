@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 03 Feb 10 15:00:23 by Hibernate Tools 3.2.5.Beta -->
+<hibernate-mapping>
+    <class name="com.visitek.xyzproject.model.entity.Skill" 
+    	entity-name="Skill" 
+    	table="skill" lazy="false">
+        <id type="long">
+            <column name="skill_id" />
+            <generator class="native"/>
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="skill_name" />
+        </property>
+        <property name="description" type="java.lang.String">
+            <column name="skill_desc" />
+        </property>
+        <property name="keyword" type="java.lang.String">
+            <column name="skill_keyword" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 29 Jan 10 10:23:51 by Hibernate Tools 3.2.5.Beta -->
+<hibernate-mapping>
+    <class name="com.visitek.xyzproject.model.Projects" table="projects" catalog="xyzproject">
+        <id name="projectId" type="java.lang.Long">
+            <column name="project_id" />
+            <generator class="identity" />
+        </id>
+        <property name="projectStatus" type="java.lang.Integer">
+            <column name="project_STATUS" />
+        </property>
+        <property name="projectPercentComplete" type="java.lang.Integer">
+            <column name="project_PERCENT_COMPLETE" />
+        </property>
+        <property name="projectPriority" type="java.lang.Integer">
+            <column name="project_PRIORITY" />
+        </property>
+        <property name="projectType" type="java.lang.Integer">
+            <column name="project_TYPE" />
+        </property>
+        <property name="projectName" type="string">
+            <column name="project_NAME" />
+        </property>
+        <property name="projectShortname" type="string">
+            <column name="project_SHORTNAME" />
+        </property>
+        <property name="projectCode" type="string">
+            <column name="project_CODE" />
+        </property>
+        <property name="projectUrl" type="string">
+            <column name="project_URL" />
+        </property>
+        <property name="projectDescripion" type="string">
+            <column name="project_DESCRIPION" />
+        </property>
+        <property name="projectColorIdentifier" type="string">
+            <column name="project_COLOR_identifier" />
+        </property>
+        <property name="projectCompany" type="java.lang.Long">
+            <column name="project_company" />
+        </property>
+        <property name="projectStartDate" type="timestamp">
+            <column name="project_START_DATE" length="0" />
+        </property>
+        <property name="projectEndDate" type="timestamp">
+            <column name="project_END_DATE" length="0" />
+        </property>
+    </class>
+</hibernate-mapping>

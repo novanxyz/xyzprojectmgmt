@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 29 Jan 10 10:23:51 by Hibernate Tools 3.2.5.Beta -->
+<hibernate-mapping>
+    <class name="com.visitek.xyzproject.model.Roles" table="roles" catalog="xyzproject">
+        <id name="roleId" type="java.lang.Long">
+            <column name="role_id" />
+            <generator class="identity" />
+        </id>
+        <property name="roleName" type="string">
+            <column name="role_name" />
+        </property>
+        <property name="userId" type="java.lang.Long">
+            <column name="user_id" />
+        </property>
+    </class>
+</hibernate-mapping>

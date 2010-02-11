@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 19 Jan 10 11:48:51 by Hibernate Tools 3.2.5.Beta -->
+<hibernate-mapping>
+    <class name="com.visitek.xyzproject.model.business.AccessControlList" 
+    	entity-name="AccessControlList" 
+    	table="permissions" lazy="true">
+    	
+    	<id name="id" type="java.lang.Long">
+            <column name="permission_id" />
+            <generator class="native" />
+        </id>
+        
+        
+        <many-to-one name="user" class="User">
+            <column name="permission_USER" />
+        </many-to-one>
+        
+        <many-to-one name="role" class="Role">
+            <column name="permission_ROLE" />
+        </many-to-one>
+        <property name="level" type="integer">
+            <column name="permission_level" />
+        </property>
+        <property name="ObjectId" type="string">
+            <column name="permission_item" />
+        </property>
+        <property name="ObjectAcl" type="integer">
+            <column name="permission_value" />
+        </property>
+        
+    </class>
+    
+    <sql-query name="getUserPermission">
+    	<return alias="acl" class="AccessControlList"/>
+		<![CDATA[
+		select * 
+		from 	permissions
+		where 	permission_USER = :user_id
+		]]>		
+    </sql-query>
+    
+    
+    <sql-query name="getRolePermission">
+    <return alias="acl" class="AccessControlList"/>
+    <![CDATA[
+		select 	* 
+		from 	permissions
+		where 	permission_group = :role_id
+			and permission_user = null or permission_user = :user_id
+		]]>	
+    </sql-query>
+    
+    <sql-query name="getUserRolePermission">
+    <return alias="acl" class="AccessControlList"/>
+    <![CDATA[
+		select 	* 
+		from 	permissions
+		where 	permission_group = :role_id
+			and permission_user = null or permission_user = :user_id
+		]]>	
+    </sql-query>
+    
+</hibernate-mapping>

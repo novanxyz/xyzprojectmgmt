@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 29 Jan 10 10:23:51 by Hibernate Tools 3.2.5.Beta -->
+<hibernate-mapping>
+    <class name="com.visitek.xyzproject.model.Tasks" table="tasks" catalog="xyzproject">
+        <id name="taskId" type="java.lang.Long">
+            <column name="task_id" />
+            <generator class="identity" />
+        </id>
+        <property name="taskName" type="string">
+            <column name="task_NAME" />
+        </property>
+        <property name="taskDescription" type="string">
+            <column name="task_DESCRIPTION" />
+        </property>
+        <property name="taskProject" type="java.lang.Long">
+            <column name="task_PROJECT" />
+        </property>
+        <property name="taskOwner" type="java.lang.Long">
+            <column name="task_OWNER" />
+        </property>
+        <property name="taskStartDate" type="timestamp">
+            <column name="task_START_DATE" length="0" />
+        </property>
+        <property name="taskEndDate" type="timestamp">
+            <column name="task_END_DATE" length="0" />
+        </property>
+        <property name="taskDuration" type="java.lang.Float">
+            <column name="task_DURATION" precision="12" scale="0" />
+        </property>
+        <property name="taskHoursWorked" type="java.lang.Float">
+            <column name="task_hours_WORKED" precision="12" scale="0" />
+        </property>
+        <property name="taskPriority" type="java.lang.Integer">
+            <column name="task_PRIORITY" />
+        </property>
+        <property name="taskStatus" type="java.lang.Integer">
+            <column name="task_STATUS" />
+        </property>
+        <property name="taskPercentComplete" type="java.lang.Integer">
+            <column name="task_PERCENT_COMPLETE" />
+        </property>
+        <property name="taskAccess" type="java.lang.Integer">
+            <column name="task_ACCESS" />
+        </property>
+        <property name="taskNotify" type="java.lang.Integer">
+            <column name="task_NOTIFY" />
+        </property>
+        <property name="taskType" type="java.lang.Integer">
+            <column name="task_TYPE" />
+        </property>
+        <property name="taskMilestone" type="java.lang.Boolean">
+            <column name="task_MILESTONE" />
+        </property>
+        <property name="taskClientPublish" type="java.lang.Boolean">
+            <column name="task_CLIENT_PUBLISH" />
+        </property>
+        <property name="taskDynamic" type="java.lang.Boolean">
+            <column name="task_DYNAMIC" />
+        </property>
+        <property name="taskRequirement" type="string">
+            <column name="task_REQUIREMENT" />
+        </property>
+    </class>
+</hibernate-mapping>

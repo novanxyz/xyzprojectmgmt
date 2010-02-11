@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context crossContext="true" debug="5" 
+	docBase="D:/www/java/xyzproject" 
+	path="/xyzproject" reloadable="true">
+
+<Resource auth="Container" 
+		driverClassName="com.mysql.jdbc.Driver" 
+		maxActive="20" 
+		maxIdle="10" 
+		maxWait="-1" 
+		name="xyzprojectDataSource" 
+		password="diinda" 
+		type="javax.sql.DataSource" 
+		url="jdbc:mysql://localhost:3306/xyzproject" 
+		username="x"/>
+</Context>

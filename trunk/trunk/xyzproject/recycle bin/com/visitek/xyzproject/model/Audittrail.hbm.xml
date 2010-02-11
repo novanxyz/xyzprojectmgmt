@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 29 Jan 10 10:23:51 by Hibernate Tools 3.2.5.Beta -->
+<hibernate-mapping>
+    <class name="com.visitek.xyzproject.model.Audittrail" table="audittrail" catalog="xyzproject">
+        <id name="auditId" type="java.lang.Long">
+            <column name="audit_id" />
+            <generator class="identity" />
+        </id>
+        <property name="auditTimestamp" type="timestamp">
+            <column name="audit_TIMESTAMP" length="0" />
+        </property>
+        <property name="auditUser" type="java.lang.Long">
+            <column name="audit_USER" />
+        </property>
+        <property name="auditAction" type="string">
+            <column name="audit_ACTION" />
+        </property>
+        <property name="auditModule" type="string">
+            <column name="audit_MODULE" />
+        </property>
+        <property name="auditObjectId" type="java.lang.Long">
+            <column name="audit_objectId" />
+        </property>
+        <property name="auditOldvalue" type="string">
+            <column name="audit_OLDVALUE" />
+        </property>
+        <property name="auditNewvalue" type="string">
+            <column name="audit_NEWVALUE" />
+        </property>
+        <property name="auditProperty" type="string">
+            <column name="audit_property" />
+        </property>
+    </class>
+</hibernate-mapping>

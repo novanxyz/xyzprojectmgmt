@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 29 Jan 10 10:23:51 by Hibernate Tools 3.2.5.Beta -->
+<hibernate-mapping>
+    <class name="com.visitek.xyzproject.model.Consultants" table="consultants" catalog="xyzproject">
+        <id name="consultantId" type="long">
+            <column name="consultant_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="consultantType" type="java.lang.Integer">
+            <column name="consultant_TYPE" />
+        </property>
+        <property name="consultantLevel" type="java.lang.Integer">
+            <column name="consultant_level" />
+        </property>
+        <property name="consultantLoad" type="java.lang.Float">
+            <column name="consultant_LOAD" precision="12" scale="0" />
+        </property>
+        <property name="consultantCost" type="java.lang.Float">
+            <column name="consultant_cost" precision="12" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>
