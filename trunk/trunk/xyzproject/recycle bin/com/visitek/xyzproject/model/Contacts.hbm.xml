@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 29 Jan 10 10:23:51 by Hibernate Tools 3.2.5.Beta -->
+<hibernate-mapping>
+    <class name="com.visitek.xyzproject.model.Contacts" table="contacts" catalog="xyzproject">
+        <id name="contactId" type="java.lang.Long">
+            <column name="contact_id" />
+            <generator class="identity" />
+        </id>
+        <property name="contactFirstname" type="string">
+            <column name="contact_FIRSTNAME" />
+        </property>
+        <property name="contactLastname" type="string">
+            <column name="contact_LASTNAME" />
+        </property>
+        <property name="contactOrderby" type="string">
+            <column name="contact_ORDERBY" />
+        </property>
+        <property name="contactTitle" type="string">
+            <column name="contact_TITLE" />
+        </property>
+        <property name="contactJob" type="string">
+            <column name="contact_JOB" />
+        </property>
+        <property name="contactBirthday" type="timestamp">
+            <column name="contact_BIRTHDAY" length="0" />
+        </property>
+        <property name="contactAddress" type="java.lang.Long">
+            <column name="contact_address" />
+        </property>
+        <property name="contactCompany" type="java.lang.Long">
+            <column name="contact_company" />
+        </property>
+        <property name="contactDept" type="java.lang.Long">
+            <column name="contact_dept" />
+        </property>
+    </class>
+</hibernate-mapping>

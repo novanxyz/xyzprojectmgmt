@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 19 Jan 10 11:48:51 by Hibernate Tools 3.2.5.Beta -->
+<hibernate-mapping>
+    <class name="com.visitek.xyzproject.model.business.User" 
+    		entity-name="User"     	
+    		table="users" lazy="true">
+    		
+    	<id type="java.lang.Long">
+            <column name="user_id" />
+            <generator class="native" />
+        </id>
+        
+        <property name="username" type="string" unique="true" not-null="true">
+            <column name="USER_USERNAME" />
+        </property>
+        <property name="password" type="string" not-null="true">
+            <column name="USER_PASSWORD" />
+        </property>
+        <property name="realname" type="string">
+            <column name="USER_REALNAME" />
+        </property>
+        <property name="email" type="string" unique="true">
+            <column name="USER_EMAIL" />
+        </property>
+        
+        <property name="active" type="boolean" >
+            <column name="user_status" />
+        </property>
+        
+        <set name="roles" inverse="false" lazy="true" table="user_roles">
+            <key column="user_id" />           
+            <one-to-many class="Role" />	                        
+        </set>
+        <one-to-one name="contact" foreign-key="user_contact" class="Contact" fetch="select" />                
+    </class>
+    
+    <sql-query name="getUserTask">
+    	<return alias="task" class="Task"/>
+		<![CDATA[
+		select 	* 
+		from 	tasks
+		where 	task_owner = :user_id					
+		]]>		
+    </sql-query>
+    
+    <sql-query name="login">    	
+		<![CDATA[
+		select 	count(1)
+		from 	users
+		where 	user_username = :username or user_email = :username
+			and	user_password = password(:password)
+			and user_status = 1
+		]]>		
+    </sql-query>
+    
+    <sql-query name="userList">
+	    <return alias="u" class="User"/>
+		<![CDATA[
+		select 	*  
+		from 	users
+		where 	:criteria
+		]]>		
+    </sql-query>
+    
+    
+    
+</hibernate-mapping>

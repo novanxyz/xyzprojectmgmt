@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<table-filter match-name="addresses" match-catalog="xyzproject" />
+	<table-filter match-name="audittrail" match-catalog="xyzproject" />
+	<table-filter match-name="companies" match-catalog="xyzproject" />
+	<table-filter match-name="consultants" match-catalog="xyzproject" />
+	<table-filter match-name="contacts" match-catalog="xyzproject" />
+	<table-filter match-name="departments" match-catalog="xyzproject" />
+	<table-filter match-name="employees" match-catalog="xyzproject" />
+	<table-filter match-name="modules" match-catalog="xyzproject" />
+	<table-filter match-name="permissions" match-catalog="xyzproject" />
+	<table-filter match-name="project_contacts"
+		match-catalog="xyzproject" />
+	<table-filter match-name="projects" match-catalog="xyzproject" />
+	<table-filter match-name="roles" match-catalog="xyzproject" />
+	<table-filter match-name="session" match-catalog="xyzproject" />
+	<table-filter match-name="task_contacts" match-catalog="xyzproject" />
+	<table-filter match-name="task_departements"
+		match-catalog="xyzproject" />
+	<table-filter match-name="tasks" match-catalog="xyzproject" />
+	<table-filter match-name="user_roles" match-catalog="xyzproject" />
+	<table-filter match-name="users" match-catalog="xyzproject" />
+	<table-filter match-name="user_roles" match-catalog="xyzproject"></table-filter>
+	<table catalog="xyzproject" name="project_contacts">
+		<column name="project_id"></column>
+		<column name="contact_id"></column>
+	</table>
+	<table catalog="xyzproject" name="employees">
+		<column name="employee_id"></column>
+		<column name="employee_nik"></column>
+		<column name="employee_grade"></column>
+	</table>
+	<table catalog="xyzproject" name="departments">
+		<column name="dept_id"></column>
+		<column name="dept_NAME"></column>
+		<column name="dept_ADDRESS"></column>
+		<column name="dept_OWNER"></column>
+		<column name="dept_COMPANY"></column>
+		<column name="dept_DESCRIPTION"></column>
+	</table>
+	<table catalog="xyzproject" name="consultants">
+		<column name="consultant_id"></column>
+		<column name="consultant_TYPE"></column>
+		<column name="consultant_level"></column>
+		<column name="consultant_LOAD"></column>
+		<column name="consultant_cost"></column>
+	</table>
+	<table catalog="xyzproject" name="permissions">
+		<column name="permission_id"></column>
+		<column name="permission_USER"></column>
+		<column name="permission_ROLE"></column>
+		<column name="permission_level"></column>
+		<column name="permission_item"></column>
+		<column name="permission_value"></column>
+	</table>
+	<table catalog="xyzproject" name="contacts">
+		<column name="contact_id"></column>
+		<column name="contact_FIRSTNAME"></column>
+		<column name="contact_LASTNAME"></column>
+		<column name="contact_ORDERBY"></column>
+		<column name="contact_TITLE"></column>
+		<column name="contact_JOB"></column>
+		<column name="contact_BIRTHDAY"></column>
+		<column name="contact_address"></column>
+		<column name="contact_company"></column>
+		<column name="contact_dept"></column>
+	</table>
+	<table catalog="xyzproject" name="roles">
+		<column name="role_id"></column>
+		<column name="role_name"></column>
+		<column name="user_id"></column>
+	</table>
+	<table catalog="xyzproject" name="tasks">
+		<column name="task_id"></column>
+		<column name="task_NAME"></column>
+		<column name="task_DESCRIPTION"></column>
+		<column name="task_PROJECT"></column>
+		<column name="task_OWNER"></column>
+		<column name="task_START_DATE"></column>
+		<column name="task_END_DATE"></column>
+		<column name="task_DURATION"></column>
+		<column name="task_hours_WORKED"></column>
+		<column name="task_PRIORITY"></column>
+		<column name="task_STATUS"></column>
+		<column name="task_PERCENT_COMPLETE"></column>
+		<column name="task_ACCESS"></column>
+		<column name="task_NOTIFY"></column>
+		<column name="task_TYPE"></column>
+		<column name="task_MILESTONE"></column>
+		<column name="task_CLIENT_PUBLISH"></column>
+		<column name="task_DYNAMIC"></column>
+		<column name="task_REQUIREMENT"></column>
+	</table>
+	<table catalog="xyzproject" name="user_roles">
+		<column name="user_id"></column>
+		<column name="role_id"></column>
+	</table>
+	<table catalog="xyzproject" name="projects">
+		<column name="project_id"></column>
+		<column name="project_STATUS"></column>
+		<column name="project_PERCENT_COMPLETE"></column>
+		<column name="project_PRIORITY"></column>
+		<column name="project_TYPE"></column>
+		<column name="project_NAME"></column>
+		<column name="project_SHORTNAME"></column>
+		<column name="project_CODE"></column>
+		<column name="project_URL"></column>
+		<column name="project_DESCRIPION"></column>
+		<column name="project_COLOR_identifier"></column>
+		<column name="project_company"></column>
+		<column name="project_START_DATE"></column>
+		<column name="project_END_DATE"></column>
+	</table>
+	<table catalog="xyzproject" name="task_departements">
+		<column name="task_id"></column>
+		<column name="dept_id"></column>
+	</table>
+	<table catalog="xyzproject" name="modules">
+		<column name="module_id"></column>
+		<column name="module_name"></column>
+		<column name="module_class"></column>
+		<column name="module_description"></column>
+		<column name="module_icon"></column>
+		<column name="module_status"></column>
+		<column name="module_uiactive"></column>
+		<column name="module_uiName"></column>
+		<column name="module_uiOrder"></column>
+	</table>
+	<table catalog="xyzproject" name="task_contacts">
+		<column name="task_id"></column>
+		<column name="contact_id"></column>
+	</table>
+	<table catalog="xyzproject" name="addresses">
+		<column name="ADDRESS1"></column>
+		<column name="ADDRESS_CITY"></column>
+		<column name="ADDRESS_STATE"></column>
+		<column name="ADDRESS_COUNTRY"></column>
+		<column name="ADDRESS_ZIPCODE"></column>
+		<column name="ADDRESS_PHONE"></column>
+		<column name="ADDRESS_MOBILE"></column>
+		<column name="ADDRESS_FAX"></column>
+		<column name="ADDRESS_EMAIL"></column>
+		<column name="ADDRESS_URL"></column>
+		<column name="ADDRESS_LOCATION"></column>
+		<column name="temp_id"></column>
+		<column name="audit_TIMESTAMP"></column>
+		<column name="audit_USER"></column>
+		<column name="audit_ACTION"></column>
+		<column name="audit_MODULE"></column>
+		<column name="audit_objectId"></column>
+		<column name="audit_OLDVALUE"></column>
+		<column name="audit_NEWVALUE"></column>
+		<column name="audit_property"></column>
+		<column name="company_NAME"></column>
+		<column name="company_COLOR"></column>
+		<column name="company_DESCRIPTION"></column>
+		<column name="company_address"></column>
+		<column name="company_owner"></column>
+	</table>
+	<table catalog="xyzproject" name="session">
+		<column name="session_id"></column>
+		<column name="session_name"></column>
+		<column name="session_clientIP"></column>
+		<column name="session_user"></column>
+		<column name="session_login"></column>
+		<column name="session_logout"></column>
+	</table>
+	<table catalog="xyzproject" name="user_tasks">
+		<column name="user_id"></column>
+		<column name="task_id"></column>
+	</table>
+</hibernate-reverse-engineering>

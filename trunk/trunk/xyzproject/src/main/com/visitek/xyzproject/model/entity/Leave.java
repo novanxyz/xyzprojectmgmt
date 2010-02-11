@@ -1,0 +1,73 @@
+package com.visitek.xyzproject.model.entity;
+
+import java.util.Date;
+
+import com.visitek.xyzproject.model.AbstractPersistentClass;
+
+
+public class Leave extends AbstractPersistentClass {
+	private static final long serialVersionUID = 1L;
+
+	Employee employee;
+	Date startDate;
+	Date endDate;
+	String reason;
+	boolean approved;
+
+	
+	public Leave() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Leave(Employee employee, Date startDate, Date endDate,
+			String reason, boolean approved) {
+		super();
+		this.employee = employee;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.reason = reason;
+		this.approved = approved;
+	}
+
+	public Employee getEmployee() {
+		return employee;
+	}
+
+	public Date getEndDate() {
+		return endDate;
+	}
+
+	public String getReason() {
+		return reason;
+	}
+
+	public Date getStartDate() {
+		return startDate;
+	}
+
+	public boolean isApproved() {
+		return approved;
+	}
+
+	public void setApproved(boolean approved) {
+		this.approved = approved;
+	}
+
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
+
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
+
+	public void setReason(String reason) {
+		this.reason = reason;
+	}
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+
+}

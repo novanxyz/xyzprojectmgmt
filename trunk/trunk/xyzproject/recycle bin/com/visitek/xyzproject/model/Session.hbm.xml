@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 29 Jan 10 10:23:51 by Hibernate Tools 3.2.5.Beta -->
+<hibernate-mapping>
+    <class name="com.visitek.xyzproject.model.Session" table="session" catalog="xyzproject">
+        <id name="sessionId" type="java.lang.Long">
+            <column name="session_id" />
+            <generator class="identity" />
+        </id>
+        <property name="sessionName" type="string">
+            <column name="session_name" />
+        </property>
+        <property name="sessionClientIp" type="string">
+            <column name="session_clientIP" />
+        </property>
+        <property name="sessionUser" type="string">
+            <column name="session_user" />
+        </property>
+        <property name="sessionLogin" type="timestamp">
+            <column name="session_login" length="0" />
+        </property>
+        <property name="sessionLogout" type="timestamp">
+            <column name="session_logout" length="0" />
+        </property>
+    </class>
+</hibernate-mapping>

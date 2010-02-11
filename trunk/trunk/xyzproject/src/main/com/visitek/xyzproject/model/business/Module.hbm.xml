@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 19 Jan 10 11:48:51 by Hibernate Tools 3.2.5.Beta -->
+<hibernate-mapping>
+    <class name="com.visitek.xyzproject.model.business.Module" 
+    	entity-name="Module" 
+    	table="modules" >
+    	
+        <id type="java.lang.Long">
+        	<column name="module_id"/>
+			<generator class="native"/>
+		</id>
+		
+		<property name="name" type="string" unique="true" not-null="true">
+			<column name="module_name"/>
+		</property>
+		<property name="description" type="string" >
+			<column name="module_description"/>			
+		</property>
+		<property name="uiName" type="string" >
+			<column name="module_uiName"/>
+		</property>
+		
+		<property name="className" type="string" unique="true">
+			<column name="module_class"/>
+		</property>
+		<property name="uiActive" type="java.lang.Boolean" >
+			<column name="module_uiactive"/>
+		</property>
+		
+		<property name="iconPath" type="string" >
+			<column name="module_icon"/>
+		</property>
+		<property name="status" type="java.lang.Boolean" access="field">
+			<column name="module_status"/>
+		</property>
+		
+		<property name="viewOrder" type="integer" unique="true">
+			<column name="module_uiOrder"/>
+		</property>		
+    </class>
+</hibernate-mapping>

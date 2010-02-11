@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 29 Jan 10 10:23:51 by Hibernate Tools 3.2.5.Beta -->
+<hibernate-mapping>
+    <class name="com.visitek.xyzproject.model.ProjectContacts" table="project_contacts" catalog="xyzproject">
+        <composite-id name="id" class="com.visitek.xyzproject.model.ProjectContactsId">
+            <key-property name="projectId" type="long">
+                <column name="project_id" />
+            </key-property>
+            <key-property name="contactId" type="long">
+                <column name="contact_id" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>
