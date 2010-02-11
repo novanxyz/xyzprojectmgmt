@@ -6,16 +6,20 @@ import com.visitek.xyzproject.model.AbstractPersistentClass;
 public class Module extends AbstractPersistentClass {
 	private static final long serialVersionUID = 1L;
 
-	String name;
-	String description;
-	String uiName;
+	String	name;
+	String 	description;
+	String 	uiName;
 
-	String entityName;
-	boolean uiActive;
-	String iconPath;
-	String status;
-	int 	viewOrder;
+	String	entityName;
+	boolean	uiActive;
+	String	iconPath;
+	String	status;
+	int		viewOrder;
 
+
+	public Module() {
+		super();
+	}
 	
 	public Module(String name) {
 		super();
@@ -28,12 +32,6 @@ public class Module extends AbstractPersistentClass {
 		this.name = name;
 		this.uiName = name;
 		this.entityName = entityName;
-	}
-
-
-	public Module() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Module(String name, String description, String uiName,

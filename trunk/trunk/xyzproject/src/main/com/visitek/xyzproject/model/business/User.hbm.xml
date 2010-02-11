@@ -41,8 +41,15 @@
 		<![CDATA[
 		select 	* 
 		from 	tasks
-		where 	task_owner = :user_id					
-		]]>		
+		where 	task_owner = :user_id
+		union 
+		select 	*
+		from tasks t
+		left outer join task_contacts tc on t.task_id = tc.task_id
+		left outer join user u on tc.contact_id = u.user_contact
+		
+		where u.user_id = :user_id
+		]]>
     </sql-query>
     
     <sql-query name="login">    	
