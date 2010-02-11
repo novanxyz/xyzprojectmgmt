@@ -16,7 +16,7 @@ import org.apache.log4j.PropertyConfigurator;
 import com.visitek.xyzproject.util.db.DBUtil;
 
 public class Constants {
-	public static final String DEFAULT_PROPERTIES_FILE_NAME = "xyzxyzproject.properties";
+	public static final String DEFAULT_PROPERTIES_FILE_NAME = "xyzproject.properties";
 
 	public static final String CFG_DEFAULTDATEFORMAT = "config.locale.defaultdateformat";
 	public static final String CFG_DEFAULTDATETIMEFORMAT = "config.locale.defaultdatetimeformat";

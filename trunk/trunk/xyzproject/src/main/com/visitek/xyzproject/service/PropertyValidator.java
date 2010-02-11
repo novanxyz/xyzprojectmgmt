@@ -6,10 +6,10 @@ import java.util.Set;
 
 import javax.script.ScriptException;
 
+import com.visitek.xyzproject.manager.exception.ValidationException;
 import com.visitek.xyzproject.model.business.Validation;
 import com.visitek.xyzproject.model.business.ValidationRule;
 import com.visitek.xyzproject.service.exception.FormulaException;
-import com.visitek.xyzproject.service.exception.ValidationException;
 import com.visitek.xyzproject.util.FormulaIntepreter;
 import com.visitek.xyzproject.util.IValidator;
 

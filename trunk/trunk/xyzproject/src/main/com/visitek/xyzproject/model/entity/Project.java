@@ -13,23 +13,20 @@ import com.visitek.xyzproject.model.business.User;
  *
  */
 public class Project extends AbstractPersistentClass {
-
 	private static final long serialVersionUID = 1L;
+
+	
+	String name;
+	String shortName;
+	String code;
+	String url;
+	String description;
 
 	int status;
 	int percentComplete;
 	int priority;
 	int type;
-	String name;
-
-	String shortName;
-
-	String code;
-
-	String url;
-
-	String description;
-
+	
 	String colorId;
 
 	User owner;
@@ -40,7 +37,6 @@ public class Project extends AbstractPersistentClass {
 	Set<Task> tasks;
 
 	Date startDate;
-
 	Date endDate;
 
 		
@@ -100,15 +96,17 @@ public class Project extends AbstractPersistentClass {
 	}
 
 	public Set<Contact> getContacts() {
-
+		
 		
 		Iterator it = getTasks().iterator();
-		Set<Contact> c = contacts;
+		Set<Contact> c = contacts;		
+		
 		c.add(owner.getContact());
 		while (it.hasNext()) {
 			Task t = (Task) it.next();
 			c.addAll(t.getContacts());
 		}
+		
 		return c;
 	}
 
@@ -138,7 +136,7 @@ public class Project extends AbstractPersistentClass {
 			while (tasks.iterator().hasNext()) {
 				protasks = tasks.iterator().next();
 				percentComplete += protasks.getPercentComplete()
-						/ (protasks.getWeight() * 100);
+									/ (protasks.getWeight() * 100);
 			}
 		}
 		return percentComplete;
