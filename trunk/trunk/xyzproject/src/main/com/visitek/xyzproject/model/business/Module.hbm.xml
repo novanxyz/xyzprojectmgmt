@@ -3,16 +3,15 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 19 Jan 10 11:48:51 by Hibernate Tools 3.2.5.Beta -->
 <hibernate-mapping>
-    <class name="com.visitek.xyzproject.model.business.Module" 
+ <class name="com.visitek.xyzproject.model.business.Module" 
     	entity-name="Module" 
-    	table="modules" >
+    	table="modules">
     	
-        <id type="java.lang.Long">
-        	<column name="module_id"/>
+		<id type="long" column="module_id">        	
 			<generator class="native"/>
 		</id>
 		
-		<property name="name" type="string" unique="true" not-null="true">
+		<property name="name" type="string" unique="true" not-null="true" length="25">
 			<column name="module_name"/>
 		</property>
 		<property name="description" type="string" >
@@ -25,19 +24,18 @@
 		<property name="entityName" type="string" unique="true">
 			<column name="module_class"/>
 		</property>
-		<property name="uiActive" type="java.lang.Boolean" >
+		<property name="uiActive" type="boolean" >
 			<column name="module_uiactive"/>
-		</property>
-		
+		</property>		
 		<property name="iconPath" type="string" >
 			<column name="module_icon"/>
 		</property>
-		<property name="status" type="java.lang.Boolean" access="field">
+		<property name="status" type="string">
 			<column name="module_status"/>
 		</property>
 		
 		<property name="viewOrder" type="integer" unique="true">
 			<column name="module_uiOrder"/>
-		</property>		
-    </class>
+		</property>				
+ </class>
 </hibernate-mapping>
