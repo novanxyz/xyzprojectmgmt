@@ -52,27 +52,28 @@
 
 		
 		<property name="hibernate.archive.autodetection"></property>
-		<property name="hibernate.ejb.autodetection"></property>		
+		<property name="hibernate.ejb.autodetection">hbm</property>		
 		
 		
 		
-		
+ <!-- 
  		<mapping resource="com/visitek/xyzproject/model/entity/Address.hbm.xml" />
  		<mapping resource="com/visitek/xyzproject/model/entity/Company.hbm.xml" />
+ 
  		<mapping resource="com/visitek/xyzproject/model/entity/Consultant.hbm.xml" />
  		<mapping resource="com/visitek/xyzproject/model/entity/Contact.hbm.xml" />
  		<mapping resource="com/visitek/xyzproject/model/entity/Department.hbm.xml" />
  		<mapping resource="com/visitek/xyzproject/model/entity/Employee.hbm.xml" />
  		<mapping resource="com/visitek/xyzproject/model/entity/Project.hbm.xml" /> 
  		<mapping resource="com/visitek/xyzproject/model/entity/Task.hbm.xml" />    
-
+ 
 		<mapping resource="com/visitek/xyzproject/model/business/AccessControlList.hbm.xml" />
 		<mapping resource="com/visitek/xyzproject/model/business/AuditTrail.hbm.xml" /> 
 		<mapping resource="com/visitek/xyzproject/model/business/Module.hbm.xml" /> 
 		<mapping resource="com/visitek/xyzproject/model/business/Role.hbm.xml" />
 		<mapping resource="com/visitek/xyzproject/model/business/Session.hbm.xml" /> 		 
 		<mapping resource="com/visitek/xyzproject/model/business/User.hbm.xml" />
-		
+-->		
 		 
  </session-factory>
 </hibernate-configuration>
