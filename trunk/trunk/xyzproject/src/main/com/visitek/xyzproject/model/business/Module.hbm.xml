@@ -24,7 +24,7 @@
 		<property name="entityName" type="string" unique="true">
 			<column name="module_class"/>
 		</property>
-		<property name="uiActive" type="boolean" access="field" >
+		<property name="uiActive" type="boolean" >
 			<column name="module_uiactive"/>
 		</property>		
 		<property name="iconPath" type="string" >
@@ -32,10 +32,9 @@
 		</property>
 		<property name="status" type="string">
 			<column name="module_status"/>
-		</property>
-		
+		</property>		
 		<property name="viewOrder" type="integer" unique="true">
 			<column name="module_uiOrder"/>
-		</property>				
+		</property>	
  </class>
 </hibernate-mapping>
