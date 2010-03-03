@@ -1,9 +1,0 @@
-<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
-
-<suite name="Address Tests" verbose="2" parallel="false">
-   <test name="Address Test">
-     <classes>
-       <class name="com.visitek.xyzproject.test.AddressTest"/>       
-     </classes>
-   </test>	
-</suite>
